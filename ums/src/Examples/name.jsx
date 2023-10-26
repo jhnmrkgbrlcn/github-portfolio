@@ -1,5 +1,5 @@
 //jsx syntax
-function user() {
+function User() {
   const name = {
     firstName: "Rolly",
     lastName: "Cueno",
@@ -15,3 +15,4 @@ function user() {
     </>
   );
 }
+export default User;

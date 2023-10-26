@@ -4,7 +4,7 @@ function List() {
   //map array
   const cities = ["Etivac", "Nacalub", "Silang", "Ejip", "Beerhouse"];
   //filter
-  const newCities = cities.filter((city) => city !== "Silang");
+  const newCities = cities.filter((city) => city !== "Nacalub");
 
   const person = [
     {
@@ -37,7 +37,7 @@ function List() {
     <>
       <h1>List</h1>
       <ul className="list-group">
-        {cities.map((city, index) => (
+        {newCities.map((city, index) => (
           <li className="list-group-item" key={index}>
             {city}
           </li>

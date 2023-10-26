@@ -6,12 +6,13 @@ import Count from "./Examples/useState";
 import Prop from "./Examples/prop";
 import Heart from "./Examples/heart";
 import Show from "./Examples/show";
+import Sample from "./Examples/sample";
 
 function App() {
   return (
     <>
-      {/* <Button /> */}
-      <List />
+      <Button />
+      {/* <List /> */}
       {/* <OnChange /> */}
       {/* <Count /> */}
       {/* <Prop /> */}
@@ -24,6 +25,7 @@ function App() {
         dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum
         dolor lorem ipsum dolorlorem ipsum dolorlorem ipsum dolor
       </Show> */}
+      {/* <Sample /> */}
     </>
   );
 }
