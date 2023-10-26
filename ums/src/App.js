@@ -1,18 +1,31 @@
 import "./App.css";
-import Cities from "./Examples/list";
+import List from "./Examples/list";
 import Button from "./Examples/handleClick";
 import OnChange from "./Examples/onChange";
 import Count from "./Examples/useState";
 import Prop from "./Examples/prop";
+import Heart from "./Examples/heart";
+import Show from "./Examples/show";
+import Sample from "./Examples/sample";
 
 function App() {
   return (
     <>
-      {/* <Button /> */}
-      {/* <Cities /> */}
+      <Button />
+      {/* <List /> */}
       {/* <OnChange /> */}
       {/* <Count /> */}
-      <Prop />
+      {/* <Prop /> */}
+      {/* <Heart onClick={() => console.log("Clicked")} /> */}
+      {/* <Show maxChars={20}>
+        lorem ipsum dolor lorem ipsum dolorlorem ipsum dolorlorem ipsum
+        dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum
+        dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum
+        dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum
+        dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum
+        dolor lorem ipsum dolorlorem ipsum dolorlorem ipsum dolor
+      </Show> */}
+      {/* <Sample /> */}
     </>
   );
 }

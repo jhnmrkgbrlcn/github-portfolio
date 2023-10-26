@@ -4,7 +4,7 @@ function List() {
   //map array
   const cities = ["Etivac", "Nacalub", "Silang", "Ejip", "Beerhouse"];
   //filter
-  const newCities = cities.filter((city) => city !== "Silang");
+  const newCities = cities.filter((city) => city !== "Nacalub");
 
   const person = [
     {
@@ -37,7 +37,7 @@ function List() {
     <>
       <h1>List</h1>
       <ul className="list-group">
-        {cities.map((city, index) => (
+        {newCities.map((city, index) => (
           <li className="list-group-item" key={index}>
             {city}
           </li>
@@ -54,12 +54,12 @@ function List() {
             </tr>
           </thead>
           <tbody>
-            {person.map((data) => {
+            {person.map((datas) => {
               return (
-                <tr key={data.id}>
-                  <td>{data.id}</td>
-                  <td>{data.name}</td>
-                  <td>{data.age < 20 ? "atabs" : "gorang"}</td>
+                <tr key={datas.id}>
+                  <td style={{ color: "red" }}>{datas.id}</td>
+                  <td>{datas.name}</td>
+                  <td>{datas.age < 20 ? "atabs" : "gorang"}</td>
                 </tr>
               );
             })}

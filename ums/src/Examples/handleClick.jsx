@@ -3,7 +3,7 @@ function handleClick() {
     alert(`Ayaw ko kol,  ${name}`);
   };
   return (
-    <button className="btn btn-success" onClick={() => handleClick("Cueno")}>
+    <button className="btn btn-success" onClick={() => handleClick("Cuenos")}>
       TButton
     </button>
   );
