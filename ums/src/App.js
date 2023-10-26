@@ -1,5 +1,7 @@
 import "./App.css";
 import List from "./Examples/list";
+import SampleRam from "./Examples/useState";
+import UseState from "./Examples/sampleRam";
 import Button from "./Examples/handleClick";
 import OnChange from "./Examples/onChange";
 import Count from "./Examples/useState";
@@ -11,7 +13,8 @@ import Sample from "./Examples/sample";
 function App() {
   return (
     <>
-      <Button />
+      <SampleRam />
+      <useState />
       {/* <List /> */}
       {/* <OnChange /> */}
       {/* <Count /> */}
