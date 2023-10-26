@@ -1,5 +1,5 @@
 import "./App.css";
-import Cities from "./Examples/list";
+import List from "./Examples/list";
 import Button from "./Examples/handleClick";
 import OnChange from "./Examples/onChange";
 import Count from "./Examples/useState";
@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       {/* <Button /> */}
-      {/* <Cities /> */}
+      <List />
       {/* <OnChange /> */}
       {/* <Count /> */}
       {/* <Prop /> */}
