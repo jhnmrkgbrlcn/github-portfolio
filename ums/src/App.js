@@ -11,10 +11,10 @@ import Sample from "./Examples/sample";
 function App() {
   return (
     <>
-      <Button />
+      {/* <Button /> */}
       {/* <List /> */}
       {/* <OnChange /> */}
-      {/* <Count /> */}
+      <Count />
       {/* <Prop /> */}
       {/* <Heart onClick={() => console.log("Clicked")} /> */}
       {/* <Show maxChars={20}>
