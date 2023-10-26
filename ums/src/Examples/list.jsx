@@ -54,12 +54,12 @@ function List() {
             </tr>
           </thead>
           <tbody>
-            {person.map((data) => {
+            {person.map((datas) => {
               return (
-                <tr key={data.id}>
-                  <td>{data.id}</td>
-                  <td>{data.name}</td>
-                  <td>{data.age < 20 ? "atabs" : "gorang"}</td>
+                <tr key={datas.id}>
+                  <td style={{ color: "red" }}>{datas.id}</td>
+                  <td>{datas.name}</td>
+                  <td>{datas.age < 20 ? "atabs" : "gorang"}</td>
                 </tr>
               );
             })}
