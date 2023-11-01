@@ -7,14 +7,17 @@ import Prop from "./Examples/prop";
 import Heart from "./Examples/heart";
 import Show from "./Examples/show";
 import Sample from "./Examples/sample";
+import Navbar from "./components/Home/navbar";
+import Sidebar from "./components/Home/sidebar";
 
 function App() {
   return (
     <>
+      <Sidebar />
       {/* <Button /> */}
       {/* <List /> */}
       {/* <OnChange /> */}
-      <Count />
+      {/* <Count /> */}
       {/* <Prop /> */}
       {/* <Heart onClick={() => console.log("Clicked")} /> */}
       {/* <Show maxChars={20}>
