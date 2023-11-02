@@ -18,7 +18,7 @@ function Counts() {
   };
 
   const handleAddFruit = () => {
-    setFruits([...fruits, "Pineapple"]);
+    setFruits([...fruits, "Pineapple pen"]);
   };
   const handleRemoveFruit = (fruitIndex) => {
     const filteredFruits = fruits.filter(
@@ -30,8 +30,12 @@ function Counts() {
   return (
     <>
       <h1>Count: {count}</h1>
-      <button onClick={handleIncrement}>Increment</button>
-      <button onClick={handleDecrement}>Decrement</button>
+      <button onClick={handleIncrement} className="btn btn-primary">
+        Increment
+      </button>
+      <button onClick={handleDecrement} className="btn btn-danger">
+        Decrement
+      </button>
       <hr />
       <div>
         <label htmlFor="">Show?</label>
@@ -41,7 +45,9 @@ function Counts() {
           checked={isChecked}
         />
       </div>
-      <button onClick={handleAddFruit}>Add Fruit</button>
+      <button onClick={handleAddFruit} className="btn btn-primary">
+        Add Fruit
+      </button>
       <ul className="list-group">
         {isChecked &&
           fruits.map((fruit, index) => {
