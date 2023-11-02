@@ -31,75 +31,45 @@ const Navbar = () => {
             <MenuIcon />
           </button>
           <ul className="navbar-nav w-100">
-            <li className="nav-item w-100"></li>
+            <li className="nav-item w-100">
+              <h4 className="d-sm-block d-md-block d-lg-none text-center">
+                User Management
+              </h4>
+            </li>
           </ul>
           <ul className="navbar-nav navbar-nav-right">
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link "
-                id="profileDropdown"
-                href="#"
-                data-bs-toggle="dropdown">
-                <div className="navbar-profile">
-                  <div className="">
-                    <p className="mb-0 d-sm-block navbar-profile-name fw-bolder text-center">
-                      Cueno John Marky
-                    </p>
-                    <p className="mb-0 d-sm-block navbar-profile-name fw-bolder text-end text-warning ">
-                      Admin
-                    </p>
-                  </div>
-                  <img
-                    className="rounded-circle mx-2"
-                    src={dummy}
-                    alt=""
-                    style={{ width: 40 }}
-                  />
-                  <span className="mdi mdi-menu-down"></span>
-                </div>
-              </a>
-
-              <div className="dropdown-menu dropdown-menu-right navbar-dropdown preview-list">
-                <a className="dropdown-item preview-item" href="">
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-dark rounded-circle">
-                      <i className="mdi mdi-account text-primary"></i>
-                    </div>
-                  </div>
-                  <div className="preview-item-content">
-                    <p className="preview-subject mb-1">Profile</p>
-                  </div>
-                </a>
-                <div className="dropdown-divider"></div>
-                <a className="dropdown-item preview-item" href="">
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-dark rounded-circle">
-                      <i className="mdi mdi-settings text-success"></i>
-                    </div>
-                  </div>
-                  <div className="preview-item-content">
-                    <p className="preview-subject mb-1">Settings</p>
-                  </div>
-                </a>
-                <div className="dropdown-divider"></div>
+            <div className="d-none d-sm-none d-md-none d-lg-block">
+              <div className="d-flex flex-row d-sm-inline-flex ">
+                <h5 className="mb-0 d-sm-block navbar-profile-name fw-bolder text-center">
+                  John Marky
+                </h5>
+                <h6 className="text-warning text-end">Admin</h6>
+                <img
+                  className="rounded-circle mx-2"
+                  src={dummy}
+                  alt=""
+                  style={{ width: 40 }}
+                />{" "}
               </div>
-            </li>
+            </div>
             <div className=" d-flex justify-content-between">
               <span className=" ">
                 <IconButton color="primary">
                   <NotificationsIcon />
                 </IconButton>
               </span>
-              <span className="">
-                <IconButton color="primary">
-                  <SettingsIcon />
-                </IconButton>
-              </span>
-              <span className="">
-                <IconButton color="primary">
-                  <ExitToAppIcon />
-                </IconButton>
-              </span>
+              <div className="d-flex d-sm-inline-flex">
+                <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                  <IconButton color="primary">
+                    <SettingsIcon />
+                  </IconButton>
+                </span>
+                <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                  <IconButton color="primary">
+                    <ExitToAppIcon />
+                  </IconButton>
+                </span>
+              </div>
             </div>
           </ul>
         </div>
