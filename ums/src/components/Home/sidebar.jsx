@@ -2,80 +2,64 @@ import React from "react";
 import logo from "../../asset/logo.png";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import GroupIcon from "@mui/icons-material/Group";
-
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+import { Link } from "react-router-dom";
+import Navbar from "./navbar";
 const Sidebar = () => {
   return (
     <>
-      <div
-        className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark vh-100"
-        style={{ width: 280, viewHeight: 1200 }}>
-        <div className="d-flex flex-row">
-          <img src={logo} alt="logo" style={{ width: 90 }} />
-          <a
-            href="/"
-            className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <span className="fs-4">User Management System</span>
-          </a>
+      <nav className="sidebar sidebar-offcanvas" id="sidebar">
+        <div className="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+          <div className="d-flex justify-content-center align-items-center">
+            <Link className="" to="">
+              <img src={logo} alt="logo" style={{ width: 70 }} />
+            </Link>
+            <h3 className="text-white">UMS</h3>
+          </div>
         </div>
-
-        <hr />
-        <ul className="nav nav-pills flex-column mb-auto">
-          <li>
-            <a href="#" className="nav-link active  " aria-current="page">
+        <ul className="nav">
+          <li className="">
+            <h2 className="text-white">Menu</h2>
+          </li>
+          <li className="nav-item menu-items">
+            <Link to="/" className="nav-link">
               <DashboardIcon style={{ margin: 5 }} />
               Dashboard
-            </a>
+            </Link>
           </li>
-          <li>
-            <a href="#" className="nav-link text-white">
+          <li className="nav-item menu-items">
+            <Link
+              className="nav-link"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseExample"
+              aria-expanded="false"
+              aria-controls="collapseExample">
               <GroupIcon style={{ margin: 5 }} />
               User Management
-            </a>
+            </Link>
+            <div className="collapse" id="collapseExample">
+              <ul className="nav flex-column sub-menu">
+                <li className="nav-item" style={{ textIndent: 30 }}>
+                  {" "}
+                  <Link className="nav-link" to="/users">
+                    <PersonOutlineIcon />
+                    Users
+                  </Link>
+                </li>
+                <li className="nav-item" style={{ textIndent: 30 }}>
+                  {" "}
+                  <Link className="nav-link" to="/role">
+                    <SupervisorAccountIcon />
+                    Role
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
-        <hr />
-        <div className="dropdown">
-          <a
-            href="#"
-            className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-            data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <img
-              src="https://github.com/mdo.png"
-              alt=""
-              width="32"
-              height="32"
-              className="rounded-circle me-2"
-            />
-            <strong>mdo</strong>
-          </a>
-          <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
-            <li>
-              <a className="dropdown-item" href="#">
-                New project...
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Settings
-              </a>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Profile
-              </a>
-            </li>
-            <li>
-              <hr className="dropdown-divider" />
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">
-                Sign out
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      </nav>
     </>
   );
 };
