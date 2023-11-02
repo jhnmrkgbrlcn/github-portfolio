@@ -1,9 +1,10 @@
+
 import React from "react";
 
 function dashboard() {
   return (
     <>
-      <div className="content-wrapper">
+      <div className="content-wrapper">   //important
         <div>dashboard</div>
       </div>
     </>
