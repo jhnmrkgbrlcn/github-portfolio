@@ -20,7 +20,7 @@ const Sidebar = () => {
         </div>
         <ul className="nav">
           <li className="">
-            <h2 className="text-white">Menu</h2>
+            <h2 className="text-white p-3 fw-bold">Menu</h2>
           </li>
           <li className="nav-item menu-items">
             <Link to="/" className="nav-link">

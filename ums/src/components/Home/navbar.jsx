@@ -40,10 +40,12 @@ const Navbar = () => {
           <ul className="navbar-nav navbar-nav-right">
             <div className="d-none d-sm-none d-md-none d-lg-block">
               <div className="d-flex flex-row d-sm-inline-flex ">
-                <h5 className="mb-0 d-sm-block navbar-profile-name fw-bolder text-center">
-                  John Marky
-                </h5>
-                <h6 className="text-warning text-end">Admin</h6>
+                <div className="d-flex flex-column">
+                  <h5 className="mb-0 d-sm-block navbar-profile-name fw-bolder text-center">
+                    Marky
+                  </h5>
+                  <h6 className=" mb-0 text-warning ">Admin</h6>
+                </div>
                 <img
                   className="rounded-circle mx-2"
                   src={dummy}
