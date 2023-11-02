@@ -2,10 +2,10 @@ function onChange() {
   //   const onChange = (name) => {
   //     alert(`Ayaw ko kol,  ${name}`);
   //   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(event.target[0].value);
-    console.log(event.target[1].value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target[0].value);
+    console.log(e.target[1].value);
   };
   return (
     <>
