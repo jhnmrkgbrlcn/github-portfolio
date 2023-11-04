@@ -16,6 +16,8 @@ import { Routes, Route } from "react-router-dom";
 import Users from "./components/Home/users";
 import Role from "./components/Home/role";
 import Home from "./components/Home/home";
+import Dashboard from "./components/Home/dashboard";
+import Card from "./components/Home/card"
 
 function App() {
   return (
@@ -30,7 +32,9 @@ function App() {
             <Route path="/users" element={<Role />}></Route>
             <Route path="/role" element={<Users />}></Route>
           </Routes>
+
         </div>
+        
       </div>
       {/* <Button /> */}
       {/* <List /> */}
