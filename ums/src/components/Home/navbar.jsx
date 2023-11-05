@@ -1,5 +1,4 @@
 import React from "react";
-import "./navbar.css";
 import logo from "../../asset/logo.png";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import MenuIcon from "@mui/icons-material/Menu";
