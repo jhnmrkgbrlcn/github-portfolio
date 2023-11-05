@@ -1,11 +1,10 @@
-import React from "react";
-import logo from "../../asset/logo.png";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import GroupIcon from "@mui/icons-material/Group";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "./navbar";
+import logo from "../../asset/logo.png";
 const Sidebar = () => {
   return (
     <>
@@ -43,14 +42,14 @@ const Sidebar = () => {
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item" style={{ textIndent: 30 }}>
                   {" "}
-                  <Link className="nav-link" to="/users">
+                  <Link className="nav-link" to="/role">
                     <PersonOutlineIcon />
                     Users
                   </Link>
                 </li>
                 <li className="nav-item" style={{ textIndent: 30 }}>
                   {" "}
-                  <Link className="nav-link" to="/role">
+                  <Link className="nav-link" to="/users">
                     <SupervisorAccountIcon />
                     Role
                   </Link>
