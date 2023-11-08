@@ -20284,7 +20284,7 @@
   
   /* Sidebar */
   .sidebar {
-    min-height: calc(100vh - 70px);
+    min-height: calc(108vh - 71px);
     background: #24549a;
     font-weight: normal;
     padding: 0;
