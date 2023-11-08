@@ -1,0 +1,44 @@
+/* userRegistration.css */
+/* Apply these styles to the div elements within the form */
+form > div {
+    display: flex;
+    /* display: inline-block; */
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  /* Apply these styles to labels and input fields within the div elements */
+  form > div label,
+  form > div input,
+  form > div select {
+    flex: 1;
+    margin: 5px;
+  }
+  
+  /* Additional styles for specific elements (e.g., the "Gender" select element) */
+  form > div select[id="Gender"] {
+    flex: 1;
+    margin: 5px;
+    width: 50%;
+  }
+  
+  /* Apply these styles to the bottom buttons */
+  form button[type="reset"],
+  form button[type="submit"] {
+    display: inline-block;
+    margin: 20px 5px 0;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  form button[type="reset"]:hover,
+  form button[type="submit"]:hover {
+    background-color: #005bb8;
+  }
+  
+  
+  /* End userRegistration */
