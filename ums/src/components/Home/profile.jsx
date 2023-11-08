@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import defUserImage from "C:/Users/nkkds/OneDrive/Desktop/ITP75/ums/src/asset/defUserImage.png";
+import defUserImage from "../../asset/defUserImage.png";
 
 function Profile() {
   const [isActive, setIsActive] = useState(true);
@@ -22,7 +22,6 @@ function Profile() {
     }
   };
 
-
   return (
     <>
       <div className="content-wrapper">
@@ -31,7 +30,7 @@ function Profile() {
         </div>
         <div className="container">
           <div className="row">
-          <div className="col-1">
+            <div className="col-1">
               <img
                 ref={profileImageRef}
                 src={defUserImage}
@@ -57,8 +56,7 @@ function Profile() {
                     borderRadius: "50%",
                     marginRight: 5,
                     backgroundColor: isActive ? "green" : "red",
-                  }}
-                ></div>
+                  }}></div>
                 {isActive ? "Active" : "Inactive"}
               </div>
               <p style={{ margin: "5px 0" }}>FullName</p>
@@ -66,23 +64,29 @@ function Profile() {
             </div>
             <div className="col-1">
               <div className="d-flex flex-column">
-                <button type="button" className="btn btn-primary btn-block mb-2">UPDATE</button>
-                <button type="button" className="btn btn-primary btn-block">DELETE</button>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-block mb-2">
+                  UPDATE
+                </button>
+                <button type="button" className="btn btn-primary btn-block">
+                  DELETE
+                </button>
               </div>
             </div>
           </div>
         </div>
         <div className="container">
           <div className="row">
-            <div className="col rounded shadow" style={{ margin: '5px' }}>
-              <ul style={{ listStyleType: 'none', padding: 0 }}>
+            <div className="col rounded shadow" style={{ margin: "5px" }}>
+              <ul style={{ listStyleType: "none", padding: 0 }}>
                 <li>Name</li>
                 <li>StudNum</li>
                 <li>Program</li>
               </ul>
             </div>
-            <div className="col rounded shadow" style={{ margin: '5px' }}>
-              <ul style={{ listStyleType: 'none', padding: 0 }}>
+            <div className="col rounded shadow" style={{ margin: "5px" }}>
+              <ul style={{ listStyleType: "none", padding: 0 }}>
                 <li>Address</li>
                 <li>PhoneNumber</li>
                 <li>EmailAddress</li>

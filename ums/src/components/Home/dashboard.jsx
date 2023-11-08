@@ -13,7 +13,7 @@ function dashboard() {
         <h1>DashBoard</h1>
         <div className="container text-center">
           <div className="row">
-            <div className="col">
+            <div className="col-md-6">
               <Card>
                 <h1 className="fw-bold" style={numStyle}>
                   50
@@ -21,7 +21,7 @@ function dashboard() {
                 <p>TOTAL USERS</p>
               </Card>
             </div>
-            <div className="col">
+            <div className="col-md-6">
               <Card>
                 <h1 className="fw-bold" style={numStyle}>
                   5
@@ -31,7 +31,7 @@ function dashboard() {
             </div>
           </div>
           <div className="row">
-            <div className="col">
+            <div className="col-md-6">
               <Card>
                 <h1 className="fw-bold" style={numStyle}>
                   30
@@ -39,7 +39,7 @@ function dashboard() {
                 <p>ACTIVE USERS</p>
               </Card>
             </div>
-            <div className="col">
+            <div className="col-md-6">
               <Card>
                 <h1 className="fw-bold" style={numStyle}>
                   0

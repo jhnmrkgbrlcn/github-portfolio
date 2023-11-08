@@ -184,58 +184,68 @@ const Users = () => {
             <button className="btn btn-primary">
               {" "}
               <Link
-                to="/users/adduser"
+                to="/user/adduser"
                 className="text-white "
                 style={{ textDecoration: "none" }}>
                 Add user
               </Link>
             </button>
           </div>
-
-          <table className="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-                <th>Date Created</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {usersToDisplay.map((user) => (
-                <tr key={user.ID}>
-                  <td>{user.ID}</td>
-                  <td>{user.Name}</td>
-                  <td>{user.Email}</td>
-                  <td>{user.Role}</td>
-                  <td>{user.Date_Created}</td>
-                  <td>{user.Status}</td>
-                  <td>
-                    <div className="d-flex d-sm-inline-flex">
-                      <span className=" ">
-                        <IconButton style={smallButtonStyle}>
-                          <BsFillPencilFill />
-                        </IconButton>
-                      </span>
-                      <span className=" d-none d-sm-none  d-md-none d-lg-block">
-                        <IconButton style={smallButtonStyle}>
-                          <AiFillCloseCircle />
-                        </IconButton>
-                      </span>
-                      <span className=" d-none d-sm-none  d-md-none d-lg-block">
-                        <IconButton style={smallButtonStyle}>
-                          <AiOutlineEllipsis />
-                        </IconButton>
-                      </span>
-                    </div>
-                  </td>
+          <div className="table-responsive">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Date Created</th>
+                  <th>Status</th>
+                  <th>Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {usersToDisplay.map((user) => (
+                  <tr key={user.ID}>
+                    <td>{user.ID}</td>
+                    <td>{user.Name}</td>
+                    <td>{user.Email}</td>
+                    <td>{user.Role}</td>
+                    <td>{user.Date_Created}</td>
+                    <td>{user.Status}</td>
+                    <td>
+                      <div className="d-flex d-sm-inline-flex">
+                        <span className="">
+                          <IconButton
+                            className="text-success"
+                            style={smallButtonStyle}>
+                            <BsFillPencilFill />
+                          </IconButton>
+                        </span>
+                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                          <IconButton
+                            className="text-danger"
+                            style={smallButtonStyle}>
+                            <AiFillCloseCircle />
+                          </IconButton>
+                        </span>
+                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                          <Link to="/user/profile">
+                            <IconButton
+                              className="text-dark"
+                              style={smallButtonStyle}>
+                              <AiOutlineEllipsis />
+                            </IconButton>
+                          </Link>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
           <nav className="d-flex justify-content-end align-items-center mb-2">
             <ul className="pagination">
               <li className="page-item">

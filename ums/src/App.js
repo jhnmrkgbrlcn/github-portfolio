@@ -12,6 +12,7 @@ import Home from "./components/Home/home";
 import Dashboard from "./components/Home/dashboard";
 import Card from "./components/Home/card";
 import UserRegistration from "./components/Home/userRegistration";
+import Profile from "./components/Home/profile";
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/users" element={<Users />}></Route>
             <Route path="/role" element={<Role />}></Route>
-            <Route path="/users/adduser" element={<UserRegistration />}></Route>
+            <Route path="/user/adduser" element={<UserRegistration />}></Route>
+            <Route path="/user/profile" element={<Profile />}></Route>
           </Routes>
         </div>
       </div>
