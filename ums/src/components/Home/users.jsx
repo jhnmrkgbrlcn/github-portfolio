@@ -10,6 +10,7 @@ import {
 import { BiSortAlt2 } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
+import { Link } from "react-router-dom";
 
 const Users = () => {
   const [users, setUsers] = useState(Data);
@@ -180,7 +181,15 @@ const Users = () => {
                 style={{ width: "200px" }}
               />
             </div>
-            <button className="btn btn-primary">Add User</button>
+            <button className="btn btn-primary">
+              {" "}
+              <Link
+                to="/users/adduser"
+                className="text-white "
+                style={{ textDecoration: "none" }}>
+                Add user
+              </Link>
+            </button>
           </div>
 
           <table className="table">

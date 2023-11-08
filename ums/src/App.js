@@ -11,6 +11,7 @@ import Role from "./components/Home/role";
 import Home from "./components/Home/home";
 import Dashboard from "./components/Home/dashboard";
 import Card from "./components/Home/card";
+import UserRegistration from "./components/Home/userRegistration";
 
 function App() {
   return (
@@ -22,8 +23,9 @@ function App() {
         <div className="main-panel">
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/users" element={<Role />}></Route>
-            <Route path="/role" element={<Users />}></Route>
+            <Route path="/users" element={<Users />}></Route>
+            <Route path="/role" element={<Role />}></Route>
+            <Route path="/users/adduser" element={<UserRegistration />}></Route>
           </Routes>
         </div>
       </div>

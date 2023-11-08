@@ -42,14 +42,14 @@ const Sidebar = () => {
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item" style={{ textIndent: 30 }}>
                   {" "}
-                  <Link className="nav-link" to="/role">
+                  <Link className="nav-link" to="/users">
                     <PersonOutlineIcon />
                     Users
                   </Link>
                 </li>
                 <li className="nav-item" style={{ textIndent: 30 }}>
                   {" "}
-                  <Link className="nav-link" to="/users">
+                  <Link className="nav-link" to="/role">
                     <SupervisorAccountIcon />
                     Role
                   </Link>

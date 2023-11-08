@@ -6,8 +6,6 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import IconButton from "@mui/material/IconButton";
 import React from "react";
 import dummy from "../../asset/dummy.jpg";
-import "./navbar.css";
-
 
 const Navbar = () => {
   return (
