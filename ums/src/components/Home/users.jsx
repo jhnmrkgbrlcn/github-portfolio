@@ -1,106 +1,107 @@
 import IconButton from "@mui/material/IconButton";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
-import { AiFillCloseCircle, AiOutlineCaretLeft, AiOutlineCaretRight, AiOutlineEllipsis } from "react-icons/ai";
+import {
+  AiFillCloseCircle,
+  AiOutlineCaretLeft,
+  AiOutlineCaretRight,
+  AiOutlineEllipsis,
+} from "react-icons/ai";
 import { BiSortAlt2 } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
-import Data from './Data.json';
+import Data from "./Data.json";
 
 const Users = () => {
   const [users, setUsers] = useState(Data);
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 7;
+  const usersPerPage = 10;
   const lastIndex = currentPage * usersPerPage;
   const firstIndex = lastIndex - usersPerPage;
   const usersToDisplay = users.slice(firstIndex, lastIndex);
   const totalPages = Math.ceil(users.length / usersPerPage);
-//sort shit
-const [sorted, setSorted] = useState({sorted:"id",reversed:false});
+  //sort shit
+  const [sorted, setSorted] = useState({ sorted: "id", reversed: false });
 
-const sortById = () => {
-  setSorted({ sorted:"id", reversed : !sorted.reversed});
-  const usersCopy = [...users];
-  usersCopy.sort((userA, userB) =>{
-    if(sorted.reversed){
-      return userA.ID - userB.ID;
-    }
-    return userB.ID - userA.ID;
-  });
-  setUsers(usersCopy);
-};
-const sortByName = () => {
-  setSorted({ sorted:"name", reversed : !sorted.reversed});
-  const usersCopy = [...users];
-  usersCopy.sort((userA, userB) =>{
-    
-    if(sorted.reversed){
-      return userB.Name.localeCompare(userA.Name);
-    }
-    return userA.Name.localeCompare(userB.Name);
-  });
-  setUsers(usersCopy);
-};
-const sortByRole = () => {
-  setSorted({ sorted:"role", reversed : !sorted.reversed});
-  const usersCopy = [...users];
-  usersCopy.sort((userA, userB) =>{
-    
-    if(sorted.reversed){
-      return userB.Role.localeCompare(userA.Role);
-    }
-    return userA.Role.localeCompare(userB.Role);
-  });
-  setUsers(usersCopy);
-};
-const sortByDc = () => {
-  setSorted({ sorted: "date_created", reversed: !sorted.reversed });
-  const usersCopy = [...users];
-  usersCopy.sort((userA, userB) => {
-    const dateA = new Date(userA.Date_Created);
-    const dateB = new Date(userB.Date_Created);
+  const sortById = () => {
+    setSorted({ sorted: "id", reversed: !sorted.reversed });
+    const usersCopy = [...users];
+    usersCopy.sort((userA, userB) => {
+      if (sorted.reversed) {
+        return userA.ID - userB.ID;
+      }
+      return userB.ID - userA.ID;
+    });
+    setUsers(usersCopy);
+  };
+  const sortByName = () => {
+    setSorted({ sorted: "name", reversed: !sorted.reversed });
+    const usersCopy = [...users];
+    usersCopy.sort((userA, userB) => {
+      if (sorted.reversed) {
+        return userB.Name.localeCompare(userA.Name);
+      }
+      return userA.Name.localeCompare(userB.Name);
+    });
+    setUsers(usersCopy);
+  };
+  const sortByRole = () => {
+    setSorted({ sorted: "role", reversed: !sorted.reversed });
+    const usersCopy = [...users];
+    usersCopy.sort((userA, userB) => {
+      if (sorted.reversed) {
+        return userB.Role.localeCompare(userA.Role);
+      }
+      return userA.Role.localeCompare(userB.Role);
+    });
+    setUsers(usersCopy);
+  };
+  const sortByDc = () => {
+    setSorted({ sorted: "date_created", reversed: !sorted.reversed });
+    const usersCopy = [...users];
+    usersCopy.sort((userA, userB) => {
+      const dateA = new Date(userA.Date_Created);
+      const dateB = new Date(userB.Date_Created);
 
-    if (sorted.reversed) {
-      return dateA - dateB;
-    }
+      if (sorted.reversed) {
+        return dateA - dateB;
+      }
 
-    return dateB - dateA;
-  });
+      return dateB - dateA;
+    });
 
-  setUsers(usersCopy);
-};
+    setUsers(usersCopy);
+  };
 
-const sortByStatus = () => {
-  setSorted({ sorted:"status", reversed : !sorted.reversed});
-  const usersCopy = [...users];
-  usersCopy.sort((userA, userB) =>{
-    
-    if(sorted.reversed){
-      return userB.Status.localeCompare(userA.Status);
-    }
-    return userA.Status.localeCompare(userB.Status);
-  });
-  setUsers(usersCopy);
-};
+  const sortByStatus = () => {
+    setSorted({ sorted: "status", reversed: !sorted.reversed });
+    const usersCopy = [...users];
+    usersCopy.sort((userA, userB) => {
+      if (sorted.reversed) {
+        return userB.Status.localeCompare(userA.Status);
+      }
+      return userA.Status.localeCompare(userB.Status);
+    });
+    setUsers(usersCopy);
+  };
   // search shit
   const [searchPhrase, setSearchPhrase] = useState("");
- const search = (event) => {
-  const searchTerm = event.target.value.toLowerCase();
+  const search = (event) => {
+    const searchTerm = event.target.value.toLowerCase();
 
-  const matchedUsers = Data.filter((user) => {
-    return (
-      user.Name.toLowerCase().includes(searchTerm) ||
-      user.ID.toString().includes(searchTerm) ||
-      user.Role.toLowerCase().includes(searchTerm) ||
-      user.Status.toLowerCase().includes(searchTerm) ||
-      user.Date_Created.toLowerCase().includes(searchTerm)
-    );
-  });
+    const matchedUsers = Data.filter((user) => {
+      return (
+        user.Name.toLowerCase().includes(searchTerm) ||
+        user.ID.toString().includes(searchTerm) ||
+        user.Role.toLowerCase().includes(searchTerm) ||
+        user.Status.toLowerCase().includes(searchTerm) ||
+        user.Date_Created.toLowerCase().includes(searchTerm)
+      );
+    });
     setUsers(matchedUsers);
     setSearchPhrase(event.target.value);
   };
   const smallButtonStyle = {
-    fontSize: "13px", 
-    
+    fontSize: "13px",
   };
   //range of page number
   const pageRange = 5;
@@ -113,7 +114,10 @@ const sortByStatus = () => {
     minPage = Math.max(1, maxPage - pageRange + 1);
   }
 
-  const pageNumbers = Array.from({ length: maxPage - minPage + 1 }, (_, i) => minPage + i);
+  const pageNumbers = Array.from(
+    { length: maxPage - minPage + 1 },
+    (_, i) => minPage + i
+  );
 
   function prePage() {
     if (currentPage !== 1) {
@@ -144,11 +148,12 @@ const sortByStatus = () => {
                 id="dropdownMenuButton"
                 data-bs-toggle="dropdown"
                 aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <BiSortAlt2/>
+                aria-expanded="false">
+                <BiSortAlt2 />
               </button>
-              <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton">
                 <button className="dropdown-item" onClick={sortById}>
                   ID
                 </button>
@@ -167,7 +172,13 @@ const sortByStatus = () => {
               </ul>
             </div>
             <div className="search-container">
-              <input type="text" placeholder="Search" value={searchPhrase} onChange={search} style={{ width: "200px" }} />
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchPhrase}
+                onChange={search}
+                style={{ width: "200px" }}
+              />
             </div>
             <button className="btn btn-primary">Add User</button>
           </div>
@@ -194,27 +205,23 @@ const sortByStatus = () => {
                   <td>{user.Date_Created}</td>
                   <td>{user.Status}</td>
                   <td>
-               
-            
-              <div className="d-flex d-sm-inline-flex">
-              <span className=" ">
-                <IconButton style={smallButtonStyle}>
-                <BsFillPencilFill />
-              </IconButton>
-            </span>
-                <span className=" d-none d-sm-none  d-md-none d-lg-block">
-                <IconButton style={smallButtonStyle}>
-                    <AiFillCloseCircle />
-                    </IconButton>
-                </span>
-                <span className=" d-none d-sm-none  d-md-none d-lg-block">
-                <IconButton style={smallButtonStyle}>
-                    <AiOutlineEllipsis />
-                </IconButton>
-                </span>
-              </div>
-            
-                    
+                    <div className="d-flex d-sm-inline-flex">
+                      <span className=" ">
+                        <IconButton style={smallButtonStyle}>
+                          <BsFillPencilFill />
+                        </IconButton>
+                      </span>
+                      <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                        <IconButton style={smallButtonStyle}>
+                          <AiFillCloseCircle />
+                        </IconButton>
+                      </span>
+                      <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                        <IconButton style={smallButtonStyle}>
+                          <AiOutlineEllipsis />
+                        </IconButton>
+                      </span>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -229,10 +236,14 @@ const sortByStatus = () => {
               </li>
               {pageNumbers.map((number) => (
                 <li
-                  className={`page-item ${currentPage === number ? 'active' : ''}`}
-                  key={number}
-                >
-                  <a href="#" className="page-link" onClick={() => changeCPage(number)}>
+                  className={`page-item ${
+                    currentPage === number ? "active" : ""
+                  }`}
+                  key={number}>
+                  <a
+                    href="#"
+                    className="page-link"
+                    onClick={() => changeCPage(number)}>
                     {number}
                   </a>
                 </li>
