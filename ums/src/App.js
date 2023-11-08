@@ -1,12 +1,7 @@
 import "./App.css";
 import List from "./Examples/list";
-import Button from "./Examples/handleClick";
-import OnChange from "./Examples/onChange";
-import Count from "./Examples/useState";
-import Prop from "./Examples/prop";
-import Heart from "./Examples/heart";
-import Show from "./Examples/show";
-import Sample from "./Examples/sample";
+import SampleRam from "./Examples/useState";
+import UseState from "./Examples/sampleRam";
 
 import Sidebar from "./components/Home/sidebar";
 import Navbar from "./components/Home/navbar";
@@ -14,6 +9,10 @@ import { Routes, Route } from "react-router-dom";
 import Users from "./components/Home/users";
 import Role from "./components/Home/role";
 import Home from "./components/Home/home";
+import Dashboard from "./components/Home/dashboard";
+import Card from "./components/Home/card";
+import UserRegistration from "./components/Home/userRegistration";
+import Profile from "./components/Home/profile";
 
 function App() {
   return (
@@ -27,24 +26,11 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/users" element={<Users />}></Route>
             <Route path="/role" element={<Role />}></Route>
+            <Route path="/user/adduser" element={<UserRegistration />}></Route>
+            <Route path="/user/profile" element={<Profile />}></Route>
           </Routes>
         </div>
       </div>
-      {/* <Button /> */}
-      {/* <List /> */}
-      {/* <OnChange /> */}
-      {/* <Count /> */}
-      {/* <Prop /> */}
-      {/* <Heart onClick={() => console.log("Clicked")} /> */}
-      {/* <Show maxChars={20}>
-        lorem ipsum dolor lorem ipsum dolorlorem ipsum dolorlorem ipsum
-        dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum
-        dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum
-        dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum
-        dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum
-        dolor lorem ipsum dolorlorem ipsum dolorlorem ipsum dolor
-      </Show> */}
-      {/* <Sample /> */}
     </>
   );
 }

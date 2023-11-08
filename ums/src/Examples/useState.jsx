@@ -2,12 +2,13 @@ import React from "react";
 import { useState } from "react";
 
 function Counts() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0); //[variable, function used for updating]
   const [isChecked, isSetChecked] = useState(false);
-  const [fruits, setFruits] = useState(["Apol", "obas", "orench"]);
+  const [fruits, setFruits] = useState(["Apol", "obas", "orench"]); //..fruits
 
   const handleIncrement = () => {
     setCount((prevState) => count + 1);
+    //increases {count}
   };
   const handleDecrement = () => {
     setCount((prevState) => count - 1);
@@ -18,7 +19,7 @@ function Counts() {
   };
 
   const handleAddFruit = () => {
-    setFruits([...fruits, "Pineapple pen"]);
+    setFruits([...fruits, "Pineapple"]); //spread operator
   };
   const handleRemoveFruit = (fruitIndex) => {
     const filteredFruits = fruits.filter(
@@ -49,7 +50,7 @@ function Counts() {
         Add Fruit
       </button>
       <ul className="list-group">
-        {isChecked &&
+        {isChecked && //when checked it shows the fruits
           fruits.map((fruit, index) => {
             return (
               <div key={index}>
