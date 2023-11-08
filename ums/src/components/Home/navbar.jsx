@@ -8,6 +8,7 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsIcon from "@mui/icons-material/Settings";
 import dummy from "../../asset/dummy.jpg";
+import { BiFontSize } from "react-icons/bi";
 
 const Navbar = () => {
   return (
@@ -32,9 +33,10 @@ const Navbar = () => {
           </button>
           <ul className="navbar-nav w-100">
             <li className="nav-item w-100">
-              <h4 className="d-sm-block d-md-block d-lg-none text-center">
-                User Management
+              <h4 className="d-m-block d-md-block d-lg-none text-center">
+                User Managemesnt
               </h4>
+    
             </li>
           </ul>
           <ul className="navbar-nav navbar-nav-right">
