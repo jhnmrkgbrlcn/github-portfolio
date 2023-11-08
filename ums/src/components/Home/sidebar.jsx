@@ -1,11 +1,10 @@
-import React from "react";
-import logo from "../../asset/logo.png";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import GroupIcon from "@mui/icons-material/Group";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "./navbar";
+import logo from "../../asset/logo.png";
 const Sidebar = () => {
   return (
     <>
