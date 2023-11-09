@@ -1,18 +1,11 @@
 import React from "react";
-import "./navbar.css";
-import logo from "../../asset/logo.png";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import MenuIcon from "@mui/icons-material/Menu";
 import IconButton from "@mui/material/IconButton";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import MenuIcon from "@mui/icons-material/Menu";
-import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsIcon from "@mui/icons-material/Settings";
-import IconButton from "@mui/material/IconButton";
-import React from "react";
 import dummy from "../../asset/dummy.jpg";
-import { BiFontSize } from "react-icons/bi";
 
 const Navbar = () => {
   return (

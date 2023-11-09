@@ -22,7 +22,7 @@ const Sidebar = () => {
             <h2 className="text-white p-3 fw-bold text-center">Menu</h2>
           </li>
           <li className="nav-item menu-items">
-            <Link to="/" className="nav-link">
+            <Link to="/dashboard" className="nav-link">
               <DashboardIcon style={{ margin: 5 }} />
               Dashboard
             </Link>

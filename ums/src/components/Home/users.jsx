@@ -11,6 +11,7 @@ import { BiSortAlt2 } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
 import { Link } from "react-router-dom";
+import Delete from "./delete";
 
 const Users = () => {
   const [users, setUsers] = useState(Data);
@@ -215,17 +216,22 @@ const Users = () => {
                     <td>
                       <div className="d-flex d-sm-inline-flex">
                         <span className=" ">
-                          <IconButton
-                            className="text-success"
-                            style={smallButtonStyle}>
-                            <BsFillPencilFill />
-                          </IconButton>
+                          <Link to="/user/adduser">
+                            <IconButton
+                              className="text-success"
+                              style={smallButtonStyle}>
+                              <BsFillPencilFill />
+                            </IconButton>
+                          </Link>
                         </span>
                         <span className=" d-none d-sm-none  d-md-none d-lg-block">
                           <IconButton
                             className="text-danger"
                             style={smallButtonStyle}>
-                            <AiFillCloseCircle />
+                            <AiFillCloseCircle>
+                              {" "}
+                              <Delete />
+                            </AiFillCloseCircle>
                           </IconButton>
                         </span>
                         <span className=" d-none d-sm-none  d-md-none d-lg-block">
