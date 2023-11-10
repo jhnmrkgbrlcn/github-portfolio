@@ -1,36 +1,50 @@
-import React from "react";
-
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import { AiFillCloseCircle } from "react-icons/ai";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
 function Delete() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const smallButtonStyle = {
+    fontSize: "15px",
+  };
   return (
     <>
-      <div class="modal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal title</h5>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal">
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <IconButton>
+        <AiFillCloseCircle
+          className="text-danger"
+          style={smallButtonStyle}
+          onClick={handleShow}
+        />
+      </IconButton>
+
+      <Modal
+        className="text-white"
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}>
+        <Modal.Header className="d-flex justify-content-center align-items-center">
+          <Modal.Title className="">
+            <DeleteIcon fontSize="large" />
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="text-center">
+          <h1>Delete User Account?</h1>
+          <p>Deleting User account is permanent and cannot be undone</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="danger">Delete</Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
