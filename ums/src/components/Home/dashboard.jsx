@@ -8,10 +8,10 @@ function dashboard() {
       <h1>DashBoard</h1>
       <div className="container ">
         <div className="row">
-          <div className="col-md-6">
+          <div className="col-md-6 col-xs-6">
             <Card link="/users" num="50" desc="TOTAL USERS" />
           </div>
-          <div className="col-md-6">
+          <div className="col-md-6 col-xs-6">
             <Card link="/role" num="5" desc="ROLES" />
           </div>
         </div>

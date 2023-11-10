@@ -11,6 +11,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import GroupIcon from "@mui/icons-material/Group";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+import Signout from "./signout";
 
 const Navbar = () => {
   return (
@@ -109,12 +110,6 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-          <button
-            className="navbar-toggler navbar-toggler align-self-center"
-            type="button"
-            data-toggle="minimize">
-            <MenuIcon />
-          </button>
           <ul className="navbar-nav w-100">
             <li className="nav-item w-100">
               <h4 className="d-m-block d-md-block d-lg-none text-center">
@@ -139,13 +134,13 @@ const Navbar = () => {
                 />{" "}
               </div>
             </div>
-            <div className=" d-flex justify-content-between">
+            <div className=" d-flex justify-content-center align-items-center">
               <span className=" ">
                 <IconButton color="primary">
                   <NotificationsIcon />
                 </IconButton>
               </span>
-              <div className="d-flex d-sm-inline-flex">
+              <div className="d-flex justify-content-center align-items-center">
                 <span className=" d-none d-sm-none  d-md-none d-lg-block">
                   <IconButton color="primary">
                     <SettingsIcon />
@@ -153,7 +148,7 @@ const Navbar = () => {
                 </span>
                 <span className=" d-none d-sm-none  d-md-none d-lg-block">
                   <IconButton color="primary">
-                    <ExitToAppIcon />
+                    <Signout />
                   </IconButton>
                 </span>
               </div>

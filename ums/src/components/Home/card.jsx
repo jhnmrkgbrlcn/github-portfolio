@@ -32,7 +32,9 @@ const Card = ({ link, num, desc }) => {
           </p>
         </div>
         <div className="card-footer" type="button" style={styleButton}>
-          <a href={link}>Full Detail {">"}</a>
+          <a style={{ textDecoration: "none" }} href={link}>
+            Full Detail {">"}
+          </a>
         </div>
       </div>
     </>

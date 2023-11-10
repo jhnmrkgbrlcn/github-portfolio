@@ -227,7 +227,7 @@ const UserRegistration = () => {
 
         <div className="row mt-3">
           <div className="d-flex justify-content-end">
-            <div className="col-md-4 offset-md-9 text-right">
+            <div className="col-md-4  text-right">
               <button type="reset" className="btn btn-secondary">
                 Cancel
               </button>
