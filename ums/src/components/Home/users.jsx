@@ -1,4 +1,5 @@
 import IconButton from "@mui/material/IconButton";
+import defUserImage from "../../asset/defUserImage.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import {
@@ -11,11 +12,12 @@ import { BiSortAlt2 } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
 import { Link } from "react-router-dom";
+import Delete from "./delete";
 
 const Users = () => {
   const [users, setUsers] = useState(Data);
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 7;
+  const usersPerPage = 10;
   const lastIndex = currentPage * usersPerPage;
   const firstIndex = lastIndex - usersPerPage;
   const usersToDisplay = users.slice(firstIndex, lastIndex);
@@ -136,10 +138,35 @@ const Users = () => {
     }
   }
 
+  const [visible, setVisible] = useState(false);
   return (
     <>
       <div className="content-wrapper">
         <div className="wrapper">
+          <h3 className="d-sm-block d-md-block d-lg-none text-center">
+            <a
+              href="/users"
+              style={{
+                margin: 30,
+                fontSize: 15,
+                textDecoration: "none",
+                color: "black",
+              }}>
+              {" "}
+              Users
+            </a>
+            <a
+              href="/role"
+              style={{
+                margin: 25,
+                fontSize: 15,
+                textDecoration: "none",
+                color: "black",
+              }}>
+              {" "}
+              Roles
+            </a>
+          </h3>
           <h2>Users</h2>
           <div className="d-flex justify-content-end align-items-center mb-2">
             <div className="dropdown mr-2">
@@ -195,6 +222,7 @@ const Users = () => {
               <thead>
                 <tr>
                   <th>#</th>
+                  <th></th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Role</th>
@@ -207,6 +235,12 @@ const Users = () => {
                 {usersToDisplay.map((user) => (
                   <tr key={user.ID}>
                     <td>{user.ID}</td>
+                    <td>
+                      <img
+                        src={defUserImage}
+                        alt="Profile Image"
+                        style={{}}></img>
+                    </td>
                     <td>{user.Name}</td>
                     <td>{user.Email}</td>
                     <td>{user.Role}</td>
@@ -215,18 +249,16 @@ const Users = () => {
                     <td>
                       <div className="d-flex d-sm-inline-flex">
                         <span className=" ">
-                          <IconButton
-                            className="text-success"
-                            style={smallButtonStyle}>
-                            <BsFillPencilFill />
-                          </IconButton>
+                          <Link to="/user/adduser">
+                            <IconButton
+                              className="text-success"
+                              style={smallButtonStyle}>
+                              <BsFillPencilFill />
+                            </IconButton>
+                          </Link>
                         </span>
                         <span className=" d-none d-sm-none  d-md-none d-lg-block">
-                          <IconButton
-                            className="text-danger"
-                            style={smallButtonStyle}>
-                            <AiFillCloseCircle />
-                          </IconButton>
+                          <Delete />
                         </span>
                         <span className=" d-none d-sm-none  d-md-none d-lg-block">
                           <Link to="/user/profile">
@@ -244,35 +276,36 @@ const Users = () => {
               </tbody>
             </table>
           </div>
-
-          <nav className="d-flex justify-content-end align-items-center mb-2">
-            <ul className="pagination">
-              <li className="page-item">
-                <a href="#" className="page-link" onClick={prePage}>
-                  <AiOutlineCaretLeft />
-                </a>
-              </li>
-              {pageNumbers.map((number) => (
-                <li
-                  className={`page-item ${
-                    currentPage === number ? "active" : ""
-                  }`}
-                  key={number}>
-                  <a
-                    href="#"
-                    className="page-link"
-                    onClick={() => changeCPage(number)}>
-                    {number}
+          <div className="d-block">
+            <nav className="d-flex justify-content-end align-items-center mb-2 ">
+              <ul className="pagination">
+                <li className="page-item">
+                  <a href="#" className="page-link" onClick={prePage}>
+                    <AiOutlineCaretLeft />
                   </a>
                 </li>
-              ))}
-              <li className="page-item">
-                <a href="#" className="page-link" onClick={nextPage}>
-                  <AiOutlineCaretRight />
-                </a>
-              </li>
-            </ul>
-          </nav>
+                {pageNumbers.map((number) => (
+                  <li
+                    className={`page-item ${
+                      currentPage === number ? "active" : ""
+                    }`}
+                    key={number}>
+                    <a
+                      href="#"
+                      className="page-link"
+                      onClick={() => changeCPage(number)}>
+                      {number}
+                    </a>
+                  </li>
+                ))}
+                <li className="page-item">
+                  <a href="#" className="page-link" onClick={nextPage}>
+                    <AiOutlineCaretRight />
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
         </div>
       </div>
     </>
