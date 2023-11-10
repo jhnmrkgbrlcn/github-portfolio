@@ -1,11 +1,10 @@
-import React from "react";
-import logo from "../../asset/logo.png";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import GroupIcon from "@mui/icons-material/Group";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
+import React from "react";
 import { Link } from "react-router-dom";
-import Navbar from "./navbar";
+import logo from "../../asset/logo.png";
 const Sidebar = () => {
   return (
     <>
@@ -20,10 +19,10 @@ const Sidebar = () => {
         </div>
         <ul className="nav">
           <li className="">
-            <h2 className="text-white p-3 fw-bold">Menu</h2>
+            <h2 className="text-white p-3 fw-bold text-center">Menu</h2>
           </li>
           <li className="nav-item menu-items">
-            <Link to="/" className="nav-link">
+            <Link to="/dashboard" className="nav-link">
               <DashboardIcon style={{ margin: 5 }} />
               Dashboard
             </Link>

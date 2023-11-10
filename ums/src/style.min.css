@@ -20284,11 +20284,10 @@
   
   /* Sidebar */
   .sidebar {
-    min-height: calc(100vh - 70px);
+    min-height: calc(108vh - 71px);
     background: #24549a;
     font-weight: normal;
     padding: 0;
-    width: 244px;
     z-index: 11;
     transition: width 0.25s ease, background 0.25s ease;
     -webkit-transition: width 0.25s ease, background 0.25s ease;
@@ -20332,7 +20331,7 @@
       flex-wrap: nowrap;
       flex-direction: column;
       margin-bottom: 60px;
-      padding-top: 70px; }
+  }
       @media (max-width: 992px) {
         .sidebar .nav {
           padding-top: 0; } }

@@ -9,6 +9,7 @@ function dashboard() {
         <h1>DashBoard</h1>
         <div className="container text-center">
           <div className="row">
+
             <div className="col">
               <Card link="/users" num="50" desc="TOTAL USERS" />
             </div>
@@ -22,6 +23,40 @@ function dashboard() {
             </div>
             <div className="col">
               <Card link="/" num="0" desc="NOTIFICATIONS" />
+            <div className="col-md-6">
+              <Card>
+                <h1 className="fw-bold" style={numStyle}>
+                  50
+                </h1>
+                <p>TOTAL USERS</p>
+              </Card>
+            </div>
+            <div className="col-md-6">
+              <Card>
+                <h1 className="fw-bold" style={numStyle}>
+                  5
+                </h1>
+                <p>ROLES</p>
+              </Card>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-6">
+              <Card>
+                <h1 className="fw-bold" style={numStyle}>
+                  30
+                </h1>
+                <p>ACTIVE USERS</p>
+              </Card>
+            </div>
+            <div className="col-md-6">
+              <Card>
+                <h1 className="fw-bold" style={numStyle}>
+                  0
+                </h1>
+                <p>NOTIFICATIONS</p>
+              </Card>
+
             </div>
           </div>
         </div>
