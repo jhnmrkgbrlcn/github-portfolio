@@ -10,12 +10,11 @@ import {
 import { BiSortAlt2 } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
-import "./style.css";
 
 const Users = () => {
   const [users, setUsers] = useState(Data);
   const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 7;
+  const usersPerPage = 10;
   const lastIndex = currentPage * usersPerPage;
   const firstIndex = lastIndex - usersPerPage;
   const usersToDisplay = users.slice(firstIndex, lastIndex);

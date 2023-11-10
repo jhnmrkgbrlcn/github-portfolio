@@ -24,6 +24,11 @@ const SidebarLayout = () => (
     </div>
   </>
 );
+const shet = () => (
+  <>
+    <div className="main-panel"></div>
+  </>
+);
 function App() {
   return (
     <>
