@@ -5,9 +5,10 @@ const Home = () => {
   return (
     <>
       <div className="content-wrapper">
-        <div className="wrapper"></div>
+        <div className="wrapper">
+          <Dashboard />
+        </div>
       </div>
-      <Dashboard></Dashboard>
     </>
   );
 };
