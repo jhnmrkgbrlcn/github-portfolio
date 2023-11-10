@@ -6,6 +6,11 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import SettingsIcon from "@mui/icons-material/Settings";
 import dummy from "../../asset/dummy.jpg";
+import { Link } from "react-router-dom";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import GroupIcon from "@mui/icons-material/Group";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 
 const Navbar = () => {
   return (
@@ -30,42 +35,73 @@ const Navbar = () => {
           id="offcanvasExample"
           aria-labelledby="offcanvasExampleLabel">
           <div className="offcanvas-header">
-            <h5 className="offcanvas-title" id="offcanvasExampleLabel">
-              Offcanvas
-            </h5>
-            <button
+            <img
+              className="rounded-circle"
+              src={dummy}
+              alt=""
+              style={{ width: "100px" }}
+            />
+            {/* <button
               type="button"
               className="btn-close"
               data-bs-dismiss="offcanvas"
-              aria-label="Close"></button>
+              aria-label="Close"></button> */}
           </div>
-          <div className="offcanvas-body">
-            <div>
-              Some text as placeholder. In real life you can have the elements
-              you have chosen. Like, text, images, lists, etc.
-            </div>
+          <div className="offcanvas-body ">
+            <h2 className="fw-bold">Marky</h2>
+            <h6 className="text-warning">Admin</h6>
             <div className="dropdown mt-3">
-              <button
-                className="btn btn-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown">
-                Dropdown button
-              </button>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
+              <ul className="nav flex-column">
+                <li className="nav-item menu-items ">
+                  <Link to="/dashboard" className="nav-link text-black">
+                    <DashboardIcon style={{ margin: 5 }} />
+                    Dashboard
+                  </Link>
                 </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
+                <li className="nav-item menu-items">
+                  <Link
+                    className="nav-link text-black"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample"
+                    aria-expanded="false"
+                    aria-controls="collapseExample">
+                    <GroupIcon style={{ margin: 5 }} />
+                    User Management
+                  </Link>
+                  <div className="collapse" id="collapseExample">
+                    <ul className="nav flex-column sub-menu">
+                      <li
+                        className="nav-item  text-black"
+                        style={{ textIndent: 30 }}>
+                        {" "}
+                        <Link className="nav-link  text-black" to="/users">
+                          <PersonOutlineIcon />
+                          Users
+                        </Link>
+                      </li>
+                      <li className="nav-item  " style={{ textIndent: 30 }}>
+                        {" "}
+                        <Link className="nav-link text-black" to="/role">
+                          <SupervisorAccountIcon />
+                          Role
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
+
+                <li className="nav-item menu-items ">
+                  <Link to="/dashboard" className="nav-link text-black">
+                    <SettingsIcon style={{ margin: 5 }} />
+                    Settings
+                  </Link>
+                </li>
+                <li className="nav-item menu-items ">
+                  <Link to="/dashboard" className="nav-link text-black">
+                    <ExitToAppIcon style={{ margin: 5 }} />
+                    Sign out
+                  </Link>
                 </li>
               </ul>
             </div>
