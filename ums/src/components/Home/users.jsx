@@ -1,4 +1,5 @@
 import IconButton from "@mui/material/IconButton";
+import defUserImage from "../../asset/defUserImage.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import {
@@ -140,6 +141,30 @@ const Users = () => {
     <>
       <div className="content-wrapper">
         <div className="wrapper">
+        <h3 className="d-sm-block d-md-block d-lg-none text-center">
+          <a
+            href="/users"
+            style={{
+              margin: 30,
+              fontSize: 15,
+              textDecoration: "none",
+              color: "black",
+            }}>
+            {" "}
+            Users
+          </a>
+          <a
+            href="/role"
+            style={{
+              margin: 25,
+              fontSize: 15,
+              textDecoration: "none",
+              color: "black",
+            }}>
+            {" "}
+            Roles
+          </a>
+        </h3>
           <h2>Users</h2>
           <div className="d-flex justify-content-end align-items-center mb-2">
             <div className="dropdown mr-2">
@@ -195,6 +220,7 @@ const Users = () => {
               <thead>
                 <tr>
                   <th>#</th>
+                  <th></th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Role</th>
@@ -207,6 +233,9 @@ const Users = () => {
                 {usersToDisplay.map((user) => (
                   <tr key={user.ID}>
                     <td>{user.ID}</td>
+                    <td><img src={defUserImage}
+                alt="Profile Image"
+                style={{ }}></img></td>
                     <td>{user.Name}</td>
                     <td>{user.Email}</td>
                     <td>{user.Role}</td>
