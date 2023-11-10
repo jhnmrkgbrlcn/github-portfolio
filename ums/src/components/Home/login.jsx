@@ -46,11 +46,11 @@ function Login() {
                       </a>
                     </p>
 
-                    <button
-                      className="btn btn-outline-light btn-lg px-5"
-                      type="submit">
-                      <Link to="/dashboard">Logiin</Link>
-                    </button>
+                    <Link
+                      to="/dashboard"
+                      className="btn btn-outline-light btn-lg px-5">
+                      Logiin
+                    </Link>
 
                     <div className="d-flex justify-content-center text-center mt-4 pt-1">
                       <a href="#!" className="text-white">

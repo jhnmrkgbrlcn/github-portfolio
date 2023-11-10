@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import './userReg.css';
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
+import "./userReg.css";
 
 const UserRegistration = () => {
-  const [FirstName, setFirstName] = useState('');
-  const [MiddleName, setMiddleName] = useState('');
-  const [LastName, setLastName] = useState('');
-  const [BirthDate, setBirthDate] = useState('');
-  const [Gender, setGender] = useState('');
-  const [Address, setAddress] = useState('');
+  const [FirstName, setFirstName] = useState("");
+  const [MiddleName, setMiddleName] = useState("");
+  const [LastName, setLastName] = useState("");
+  const [BirthDate, setBirthDate] = useState("");
+  const [Gender, setGender] = useState("");
+  const [Address, setAddress] = useState("");
 
-  const [UserName, setUserName] = useState('');
-  const [EmailAdd, setEmailAdd] = useState('');
-  const [Role, setRole] = useState('');
-  const [ContactNo, setContactNo] = useState('');
-  const [NewPassw, setNewPassw] = useState('');
-  const [ConfPassw, setConfPassw] = useState('');
+  const [UserName, setUserName] = useState("");
+  const [EmailAdd, setEmailAdd] = useState("");
+  const [Role, setRole] = useState("");
+  const [ContactNo, setContactNo] = useState("");
+  const [NewPassw, setNewPassw] = useState("");
+  const [ConfPassw, setConfPassw] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +33,7 @@ const UserRegistration = () => {
       ContactNo,
       NewPassw,
       ConfPassw,
-      });
+    });
   };
 
   return (
@@ -44,7 +44,9 @@ const UserRegistration = () => {
         <h2>Personal Information</h2>
         <div className="row">
           <div className="col-md-3">
-            <h6><b>Name</b></h6>
+            <h6>
+              <b>Name</b>
+            </h6>
             <label htmlFor="FirstName">First Name:</label>
             <input
               type="text"
@@ -70,7 +72,9 @@ const UserRegistration = () => {
           </div>
 
           <div className="col-md-3">
-            <h6><b>Birthdate</b></h6>
+            <h6>
+              <b>Birthdate</b>
+            </h6>
             <label htmlFor="BirthDate">Day of Birth:</label>
             <input
               type="date"
@@ -83,15 +87,16 @@ const UserRegistration = () => {
           </div>
 
           <div className="col-md-3">
-            <h6><b>Gender</b></h6>
+            <h6>
+              <b>Gender</b>
+            </h6>
             <label htmlFor="Gender">Sex:</label>
             <select
               id="Gender"
               className="form-control"
               required
               value={Gender}
-              onChange={(e) => setGender(e.target.value)}
-            >
+              onChange={(e) => setGender(e.target.value)}>
               <option value="ChooseGender">--Choose Gender--</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -114,7 +119,9 @@ const UserRegistration = () => {
 
           <div className="col-md-8">
             {/* <h6>Address</h6> */}
-            <label htmlFor="Address"><b>Address</b></label>
+            <label htmlFor="Address">
+              <b>Address</b>
+            </label>
             <input
               type="text"
               id="Address"
@@ -129,7 +136,9 @@ const UserRegistration = () => {
         <h2>Account Information</h2>
         <div className="row">
           <div className="col-md-3">
-            <label htmlFor="UserName"><b>Username:</b></label>
+            <label htmlFor="UserName">
+              <b>Username:</b>
+            </label>
             <input
               type="text"
               id="UserName"
@@ -141,7 +150,9 @@ const UserRegistration = () => {
           </div>
 
           <div className="col-md-3">
-            <label htmlFor="EmailAdd"><b>Email Address:</b></label>
+            <label htmlFor="EmailAdd">
+              <b>Email Address:</b>
+            </label>
             <input
               type="text"
               id="EmailAdd"
@@ -151,18 +162,18 @@ const UserRegistration = () => {
               onChange={(e) => setEmailAdd(e.target.value)}
             />
           </div>
-        
 
-        {/* <div className="row mt-3"> */}
+          {/* <div className="row mt-3"> */}
           <div className="col-md-3">
-            <label htmlFor="Role"><b>Role:</b></label>
+            <label htmlFor="Role">
+              <b>Role:</b>
+            </label>
             <select
               id="Role"
               className="form-control"
               required
               value={Role}
-              onChange={(e) => setRole(e.target.value)}
-            >
+              onChange={(e) => setRole(e.target.value)}>
               <option value="ChooseRole">--Choose Role--</option>
               <option value="Student">Student</option>
               <option value="Admin">Admin</option>
@@ -170,7 +181,9 @@ const UserRegistration = () => {
           </div>
 
           <div className="col-md-3">
-            <label htmlFor="ContactNo"><b>Contact No:</b></label>
+            <label htmlFor="ContactNo">
+              <b>Contact No:</b>
+            </label>
             <input
               type="number"
               id="ContactNo"
@@ -180,10 +193,12 @@ const UserRegistration = () => {
               onChange={(e) => setContactNo(e.target.value)}
             />
           </div>
-        {/* </div> */}
+          {/* </div> */}
         </div>
 
-        <h6><b>Password</b></h6>
+        <h6>
+          <b>Password</b>
+        </h6>
         <div className="row">
           <div className="col-md-6">
             <label htmlFor="NewPassw">New Password:</label>
@@ -211,13 +226,15 @@ const UserRegistration = () => {
         </div>
 
         <div className="row mt-3">
-          <div className="col-md-4 offset-md-9 text-right">
-            <button type="reset" className="btn btn-secondary">
-              Cancel
-            </button>
-            <button type="submit" className="btn btn-primary ml-2">
-              Register
-            </button>
+          <div className="d-flex justify-content-end">
+            <div className="col-md-4 offset-md-9 text-right">
+              <button type="reset" className="btn btn-secondary">
+                Cancel
+              </button>
+              <button type="submit" className="btn btn-primary ml-2">
+                Register
+              </button>
+            </div>
           </div>
         </div>
       </form>
