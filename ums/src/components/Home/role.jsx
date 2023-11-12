@@ -7,7 +7,7 @@ import {
   AiOutlineCaretRight,
   AiOutlineEllipsis,
 } from "react-icons/ai";
-import { BiSortAlt2 } from "react-icons/bi";
+import { BiSortAlt2, BiUnderline } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
 
@@ -144,17 +144,20 @@ const Users = () => {
     return nameCounts;
   };
   const nameCounts = countRepeatedNames(users);
+  
   return (
-    <>
+ 
+   <>
       <div className="content-wrapper">
         <h3 className="d-sm-block d-md-block d-lg-none text-center">
           <a
             href="/users"
             style={{
               margin: 30,
-              fontSize: 15,
+              fontSize: 18,
               textDecoration: "none",
               color: "black",
+              
             }}>
             {" "}
             Users
@@ -163,9 +166,10 @@ const Users = () => {
             href="/role"
             style={{
               margin: 25,
-              fontSize: 15,
-              textDecoration: "none",
+              fontSize: 18,
+              textDecoration: "underlined",
               color: "black",
+              fontWeight:"bold",
             }}>
             {" "}
             Roles
@@ -216,9 +220,9 @@ const Users = () => {
             <button className="btn btn-primary">Add Roles</button>
           </div>
           <div className="table-responsive">
-            <table className="table">
+            <table className="table table-borderless">
               <thead>
-                <tr>
+                <tr className="table-active d-none d-md-table-row" >
                   <th>#</th>
                   <th>Name</th>
                   <th>Handle</th>
@@ -229,7 +233,7 @@ const Users = () => {
               </thead>
               <tbody>
                 {Object.keys(nameCounts).map((role, index) => (
-                  <tr key={index}>
+                  <tr className="table-active" key={index}>
                     <td>{index + 1}</td>
                     <td>{role}</td>
                     <td>{}</td>
@@ -244,7 +248,7 @@ const Users = () => {
                             <BsFillPencilFill />
                           </IconButton>
                         </span>
-                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                        <span className=" d-flex d-sm-inline-flex">
                           <IconButton
                             className=" text-danger"
                             style={smallButtonStyle}>
@@ -259,8 +263,8 @@ const Users = () => {
             </table>
           </div>
 
-          <nav className="d-flex justify-content-end align-items-center mb-2">
-            <ul className="pagination">
+          <nav className="d-none d-md-flex flex-shrink-0 justify-content-end align-items-center mb-2">
+            <ul className="pagination ">
               <li className="page-item">
                 <a href="#" className="page-link" onClick={prePage}>
                   <AiOutlineCaretLeft />
