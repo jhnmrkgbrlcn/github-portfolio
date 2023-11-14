@@ -18255,7 +18255,7 @@
       vertical-align: middle;
       font-size: 0.875rem;
       line-height: 1;
-      white-space: nowrap;
+      white-space: inherit;
       padding: 0.9375rem; }
       .table th img, .jsgrid .jsgrid-table th img,
       .table td img,

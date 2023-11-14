@@ -11,7 +11,7 @@ import { BiSortAlt2, BiUnderline } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
 
-const Role = () => {
+const Users = () => {
   const [users, setUsers] = useState(Data);
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 10;
@@ -186,7 +186,7 @@ const Role = () => {
                 data-bs-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
-                style={{ marginRight: "10px", marginTop: "2px", marginBottom: "10px" }}
+                style={{ marginRight: "10px", marginTop: "3px" ,marginBottom:"10px"}}
                               >
                 <BiSortAlt2 />
               </button>
@@ -226,12 +226,12 @@ const Role = () => {
             <table className="table table d-none d-md-table">
               <thead>
                 <tr>
-                  <th className="text-center">#</th>
-                  <th className="text-center">Name</th>
-                  <th className="text-center">Handle</th>
-                  <th className="text-center">Date Created</th>
-                  <th className="text-center">No.of Users</th>
-                  <th className="text-center">Action</th>
+                  <th>#</th>
+                  <th className="centered-cell">Name</th>
+                  <th className="centered-cell">Handle</th>
+                  <th>Date Created</th>
+                  <th>No.of Users</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -304,42 +304,47 @@ const Role = () => {
             </ul>
           </nav>
         </div>
-         {/* Mobile table Veiw */}
-  <table class="table table-responsive d-md-none table-borderless" >
-  <thead >
-  {Object.keys(nameCounts).map((role, index) => (
-                  <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{role}</td>
-                    <td>{}</td>
-                    <td>{nameCounts[role]}</td>
-      <td>
-      <div className="d-flex d-sm-inline-flex ">
-                        <span className="">
-                          <IconButton
-                            className=" text-success"
-                            style={smallButtonStyle}>
-                            <BsFillPencilFill />
-                          </IconButton>
-                        </span>
-                        <span className=" d-flex d-sm-inline-flex">
-                          <IconButton
-                            className=" text-danger"
-                            style={smallButtonStyle}>
-                            <AiFillCloseCircle />
-                          </IconButton>
-                        </span>
-                      </div>
-      </td>
-    </tr>
-    ))}
-  </thead>
-</table>
+        
+  {/* Mobile table Veiw */}
+<table className="table table-responsive-sm d-md-none table-borderless">
+  <thead className="table-responsive-md">
+    {Object.keys(nameCounts).map((role, index) => {
+      const roleUsers = users.filter(user => user.Role === role);
+      // Extract unique module names for the current role
+      const uniqueModules = [...new Set(roleUsers.flatMap(user => user.Handles))];
 
-         
+      return (
+        <tr key={index}>
+          <td>{index + 1}</td>
+          <td>{role}</td>
+          <td class="table-cell">{uniqueModules.join(", ")}</td>
+          <td >{nameCounts[role]}</td>
+          <td >
+            <div className="d-flex d-sm-inline-flex ">
+              <span className="">
+                <IconButton
+                  className=" text-success"
+                  style={smallButtonStyle}>
+                  <BsFillPencilFill />
+                </IconButton>
+              </span>
+              <span className=" d-flex d-sm-inline-flex">
+                <IconButton
+                  className=" text-danger"
+                  style={smallButtonStyle}>
+                  <AiFillCloseCircle />
+                </IconButton>
+              </span>
+            </div>
+          </td>
+        </tr>
+      );
+    })}
+  </thead>
+</table> 
       </div>
     </>
   );
 };
 
-export default Role;
+export default Users;
