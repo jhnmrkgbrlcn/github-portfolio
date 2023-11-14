@@ -21,7 +21,11 @@
       "ID": 3,
       "Name": "Michael Davis",
       "Email": "michael.davis@example.com",
+
       "Role": "Manager",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-03",
       "Status": "Active",
       "Handles": ["Manage Budget", "Create Project", "View Team Performance"]
@@ -30,7 +34,11 @@
       "ID": 4,
       "Name": "Sarah Wilson",
       "Email": "sarah.wilson@example.com",
+
       "Role": "Director",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-04",
       "Status": "Offline",
       "Handles": ["Board Meetings", "Policy Decision", "Strategic Planning"]
@@ -57,7 +65,8 @@
       "ID": 7,
       "Name": "Matthew Clark",
       "Email": "matthew.clark@example.com",
-      "Role": "Influencer",
+      "Role": "Influencer"
+      "Role": "SuperUsers",
       "Date_Created": "2023-11-01",
       "Status": "Active",
       "Handles": ["Create Content", "Attend Events", "View Analytics"]
@@ -66,7 +75,11 @@
       "ID": 8,
       "Name": "Emily White",
       "Email": "emily.white@example.com",
+
       "Role": "User",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-02",
       "Status": "Offline",
       "Handles": ["View Dashboard", "Edit Profile", "Upload Files"]
@@ -93,7 +106,11 @@
       "ID": 11,
       "Name": "Robert Taylor",
       "Email": "robert.taylor@example.com",
+
       "Role": "Developer",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-05",
       "Status": "Active",
       "Handles": ["Coding", "Bug Fixing", "Code Review"]
@@ -102,7 +119,11 @@
       "ID": 12,
       "Name": "Linda Hall",
       "Email": "linda.hall@example.com",
+
       "Role": "Designer",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-06",
       "Status": "Offline",
       "Handles": ["Graphic Design", "Prototyping", "User Interface Design"]
@@ -129,7 +150,11 @@
       "ID": 15,
       "Name": "Charles Harris",
       "Email": "charles.harris@example.com",
+
       "Role": "Tester",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-03",
       "Status": "Active",
       "Handles": ["Test Planning", "Test Execution", "Defect Reporting"]
@@ -138,7 +163,11 @@
       "ID": 16,
       "Name": "Elizabeth Turner",
       "Email": "elizabeth.turner@example.com",
+
       "Role": "Consultant",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-04",
       "Status": "Offline",
       "Handles": ["Client Meetingst", "Recommendations", "Project Evaluation"]
@@ -165,7 +194,11 @@
       "ID": 19,
       "Name": "Christopher Wilson",
       "Email": "christopher.wilson@example.com",
+ 
       "Role": "Team Lead",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-01",
       "Status": "Active",
       "Handles": ["Team Coordination", "Performance Reviews", "Mentoring"]
@@ -174,7 +207,11 @@
       "ID": 20,
       "Name": "Jessica Smith",
       "Email": "jessica.smith@example.com",
+ 
       "Role": "Manager",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-02",
       "Status": "Offline",
       "Handles": ["Manage Budget", "Create Project", "View Team Performance"]
