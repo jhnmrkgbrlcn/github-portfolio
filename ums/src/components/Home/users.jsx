@@ -134,10 +134,36 @@ const Users = () => {
   }
 
   const [visible, setVisible] = useState(false);
+  
   return (
     <>
       <div className="content-wrapper" style={{ backgroundColor: '#ffffff'}}>
         <div className="wrapper">
+          <h3 className="d-sm-block d-md-block d-lg-none text-center">
+            <a
+              href="/users"
+              style={{
+                margin: 30,
+                fontSize: 18,
+                textDecoration: "underline",
+                color: "black",
+                fontWeight:"bold",
+              }}>
+              {" "}
+              Users
+            </a>
+            <a
+              href="/role"
+              style={{
+                margin: 25,
+                fontSize: 18,
+                textDecoration: "none",
+                color: "black",
+              }}>
+              {" "}
+              Roles
+            </a>
+          </h3>
           <h2>Users</h2>
           <div className="d-flex justify-content-end align-items-center mb-2">
             <div className="dropdown mr-2">
@@ -147,16 +173,8 @@ const Users = () => {
             <div className="search-container">
             <input type="text" placeholder="Search" value={searchPhrase} onChange={search} className="search-input" style={{ width: "200px" }} />
           </div>
-          </div>
-
-        <div className="ml-2">
-         <button className="btn btn-primary" style={{marginLeft: "10px", marginBottom: "10px", }}>Add User</button>
-        </div>
-        </div>
-
-        
-          <div className="table-container">
-            <table className="table">
+          <div className="table-responsive">
+            <table className="table table d-none d-md-table">
               <thead>
                 <tr>
                 <th className="text-center">#</th>
@@ -198,10 +216,10 @@ const Users = () => {
                             </IconButton>
                           </Link>
                         </span>
-                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                        <span className="d-flex d-sm-inline-flex ">
                           <Delete />
                         </span>
-                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                        <span className=" d-flex d-sm-inline-flex">
                           <Link to="/user/profile">
                             <IconButton
                               className="text-dark"
@@ -216,6 +234,43 @@ const Users = () => {
                 ))}
               </tbody>
             </table>
+   {/* Mobile table Veiw */}
+   
+  <table class="table table-responsive d-md-none table-borderless" >
+  <thead >
+  {usersToDisplay.map((user) => (
+    <tr class="rounded-pill">
+    <td >{user.ID}</td>
+    <td>
+      <img
+      src={defUserImage}
+      alt="Profile Image"
+      style={{}}></img>
+    </td>
+      <td>{user.Name}</td>
+      <td>{user.Role}</td>
+      <td>{user.Status}</td>
+      <td>
+      <div className="d-flex d-sm-inline-flex">
+        <span className=" ">
+          <Link to="/user/adduser">
+            <IconButton
+             className="text-success"
+                style={smallButtonStyle}>
+                  <BsFillPencilFill />
+                    </IconButton>
+                    </Link>
+          </span>
+           <span className="d-flex d-sm-inline-flex ">
+                          <Delete />
+           </span>
+       </div>
+      </td>
+    </tr>
+    ))}
+  </thead>
+</table>
+
           </div>
           <div className="d-block">
             <nav className="d-flex justify-content-end align-items-center mb-2 ">
@@ -252,5 +307,6 @@ const Users = () => {
     </>
   );
 };
+ 
 
 export default Users;
