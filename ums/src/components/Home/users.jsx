@@ -275,8 +275,8 @@ const Users = () => {
               </tbody>
             </table>
           </div>
-          <div className="d-block">
-            <nav className="d-flex justify-content-end align-items-center mb-2 ">
+          <div class="d-block">
+            <nav class="d-flex justify-content-end align-items-center mb-2 ">
               <ul className="pagination">
                 <li className="page-item">
                   <a href="#" className="page-link" onClick={prePage}>
