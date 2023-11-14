@@ -18,9 +18,9 @@ const UserRegistration = () => {
   const [ConfPassw, setConfPassw] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const isValidPhoneNumber = (phoneNumber) => {
+  const isValidPhoneNumber = (ContactNo) => {
     const phoneRegex = /^\d{11}$/;
-    return phoneRegex.test(phoneNumber);
+    return phoneRegex.test(ContactNo);
   };
 
   const handleSubmit = (e) => {
