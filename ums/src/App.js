@@ -14,6 +14,7 @@ import UserRegistration from "./components/Home/userRegistration";
 import Profile from "./components/Home/profile";
 import Login from "./components/Home/login";
 import { Outlet } from "react-router-dom";
+import Settings from "./components/Home/settings";
 
 const SidebarLayout = () => (
   <>
@@ -40,6 +41,7 @@ function App() {
             <Route path="/role" element={<Role />}></Route>
             <Route path="/user/adduser" element={<UserRegistration />}></Route>
             <Route path="/user/profile" element={<Profile />}></Route>
+            <Route path="/settings" element={<Settings />}></Route>
           </Route>
           <Route path="/" element={<Login />} />
         </Routes>
