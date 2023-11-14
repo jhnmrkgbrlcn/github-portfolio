@@ -7,7 +7,7 @@ import {
   AiOutlineCaretRight,
   AiOutlineEllipsis,
 } from "react-icons/ai";
-import { BiSortAlt2 } from "react-icons/bi";
+import { BiSortAlt2, BiUnderline } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
 
@@ -144,17 +144,20 @@ const Users = () => {
     return nameCounts;
   };
   const nameCounts = countRepeatedNames(users);
+  
   return (
-    <>
+ 
+   <>
       <div className="content-wrapper">
         <h3 className="d-sm-block d-md-block d-lg-none text-center">
           <a
             href="/users"
             style={{
               margin: 30,
-              fontSize: 15,
+              fontSize: 18,
               textDecoration: "none",
               color: "black",
+              
             }}>
             {" "}
             Users
@@ -163,9 +166,10 @@ const Users = () => {
             href="/role"
             style={{
               margin: 25,
-              fontSize: 15,
-              textDecoration: "none",
+              fontSize: 18,
+              textDecoration: "underlined",
               color: "black",
+              fontWeight:"bold",
             }}>
             {" "}
             Roles
@@ -219,15 +223,15 @@ const Users = () => {
         </div>
 
           <div className="table-responsive">
-            <table className="table">
+            <table className="table table d-none d-md-table">
               <thead>
                 <tr>
-                  <th className="text-center">#</th>
-                  <th className="text-center">Name</th>
-                  <th className="text-center">Handle</th>
-                  <th className="text-center">Date Created</th>
-                  <th className="text-center">No.of Users</th>
-                  <th className="text-center">Action</th>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Handle</th>
+                  <th>Date Created</th>
+                  <th>No.of Users</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -255,7 +259,7 @@ const Users = () => {
                             <BsFillPencilFill />
                           </IconButton>
                         </span>
-                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                        <span className=" d-flex d-sm-inline-flex">
                           <IconButton
                             className=" text-danger"
                             style={smallButtonStyle}>
@@ -271,8 +275,8 @@ const Users = () => {
             </table>
           </div>
 
-          <nav className="d-flex justify-content-end align-items-center mb-2">
-            <ul className="pagination">
+          <nav className="d-none d-md-flex flex-shrink-0 justify-content-end align-items-center mb-2">
+            <ul className="pagination ">
               <li className="page-item">
                 <a href="#" className="page-link" onClick={prePage}>
                   <AiOutlineCaretLeft />
@@ -300,6 +304,39 @@ const Users = () => {
             </ul>
           </nav>
         </div>
+         {/* Mobile table Veiw */}
+  <table class="table table-responsive d-md-none table-borderless" >
+  <thead >
+  {Object.keys(nameCounts).map((role, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{role}</td>
+                    <td>{}</td>
+                    <td>{nameCounts[role]}</td>
+      <td>
+      <div className="d-flex d-sm-inline-flex ">
+                        <span className="">
+                          <IconButton
+                            className=" text-success"
+                            style={smallButtonStyle}>
+                            <BsFillPencilFill />
+                          </IconButton>
+                        </span>
+                        <span className=" d-flex d-sm-inline-flex">
+                          <IconButton
+                            className=" text-danger"
+                            style={smallButtonStyle}>
+                            <AiFillCloseCircle />
+                          </IconButton>
+                        </span>
+                      </div>
+      </td>
+    </tr>
+    ))}
+  </thead>
+</table>
+
+         
       </div>
     </>
   );

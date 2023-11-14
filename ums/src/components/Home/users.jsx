@@ -137,7 +137,7 @@ const Users = () => {
     }
   }
 
-  
+  const [visible, setVisible] = useState(false);
   return (
     <>
       <div className="content-wrapper">
@@ -147,9 +147,10 @@ const Users = () => {
               href="/users"
               style={{
                 margin: 30,
-                fontSize: 15,
-                textDecoration: "none",
+                fontSize: 18,
+                textDecoration: "underline",
                 color: "black",
+                fontWeight:"bold",
               }}>
               {" "}
               Users
@@ -158,7 +159,7 @@ const Users = () => {
               href="/role"
               style={{
                 margin: 25,
-                fontSize: 15,
+                fontSize: 18,
                 textDecoration: "none",
                 color: "black",
               }}>
@@ -215,7 +216,7 @@ const Users = () => {
 
 
           <div className="table-responsive">
-            <table className="table">
+            <table className="table table d-none d-md-table">
               <thead>
                 <tr>
                   <th className="text-center">#</th>
@@ -254,10 +255,10 @@ const Users = () => {
                             </IconButton>
                           </Link>
                         </span>
-                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                        <span className="d-flex d-sm-inline-flex ">
                           <Delete />
                         </span>
-                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                        <span className=" d-flex d-sm-inline-flex">
                           <Link to="/user/profile">
                             <IconButton
                               className="text-dark"
@@ -272,7 +273,43 @@ const Users = () => {
                 ))}
               </tbody>
             </table>
-          </div>
+   {/* Mobile table Veiw */}
+   
+  <table class="table table-responsive d-md-none table-borderless" >
+  <thead >
+  {usersToDisplay.map((user) => (
+    <tr class="rounded-pill">
+    <td >{user.ID}</td>
+    <td>
+      <img
+      src={defUserImage}
+      alt="Profile Image"
+      style={{}}></img>
+    </td>
+      <td>{user.Name}</td>
+      <td>{user.Role}</td>
+      <td>{user.Status}</td>
+      <td>
+      <div className="d-flex d-sm-inline-flex">
+        <span className=" ">
+          <Link to="/user/adduser">
+            <IconButton
+             className="text-success"
+                style={smallButtonStyle}>
+                  <BsFillPencilFill />
+                    </IconButton>
+                    </Link>
+          </span>
+           <span className="d-flex d-sm-inline-flex ">
+                          <Delete />
+           </span>
+       </div>
+      </td>
+    </tr>
+    ))}
+  </thead>
+</table>
+</div>
           <div class="d-block">
             <nav class="d-flex justify-content-end align-items-center mb-2 ">
               <ul className="pagination">
@@ -308,5 +345,6 @@ const Users = () => {
     </>
   );
 };
+ 
 
 export default Users;
