@@ -18,6 +18,7 @@ const UserRegistration = () => {
   const [ConfPassw, setConfPassw] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  //check valid 11 digit number
   const isValidPhoneNumber = (ContactNo) => {
     const phoneRegex = /^\d{11}$/;
     return phoneRegex.test(ContactNo);
