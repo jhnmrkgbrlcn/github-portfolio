@@ -177,7 +177,7 @@ const Users = () => {
                     data-bs-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    style={{ marginRight: "10px", marginTop: "2px" }}
+                    style={{ marginRight: "10px", marginTop: "2px", marginBottom: "10px" }}
                                   >
                   <BiSortAlt2 />
                   </button>
@@ -214,7 +214,6 @@ const Users = () => {
         </div>
         </div>
 
-
           <div className="table-responsive">
             <table className="table table d-none d-md-table">
               <thead>
@@ -230,6 +229,7 @@ const Users = () => {
                 </tr>
               </thead>
               <tbody>
+
                 {usersToDisplay.map((user) => (
                   <tr key={user.ID}>
                     <td>{user.ID}</td>
@@ -341,7 +341,7 @@ const Users = () => {
             </nav>
           </div>
         </div>
-      </div>
+       </div>
     </>
   );
 };
