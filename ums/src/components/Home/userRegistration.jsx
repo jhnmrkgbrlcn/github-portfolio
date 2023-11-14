@@ -16,25 +16,48 @@ const UserRegistration = () => {
   const [ContactNo, setContactNo] = useState("");
   const [NewPassw, setNewPassw] = useState("");
   const [ConfPassw, setConfPassw] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  //check valid 11 digit number
+  const isValidPhoneNumber = (ContactNo) => {
+    const phoneRegex = /^\d{11}$/;
+    return phoneRegex.test(ContactNo);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log({
-      FirstName,
-      MiddleName,
-      LastName,
-      BirthDate,
-      Gender,
-      Address,
-      UserName,
-      EmailAdd,
-      Role,
-      ContactNo,
-      NewPassw,
-      ConfPassw,
-    });
+
+    if (
+      FirstName && MiddleName && LastName && BirthDate && Gender && Address &&
+      UserName && EmailAdd && Role && ContactNo && NewPassw && ConfPassw &&
+      ContactNo && NewPassw === ConfPassw
+    ) {
+      if (!isValidPhoneNumber(ContactNo)) {
+        setErrorMessage('Please enter a valid 11-digit phone number.');
+        return;
+      }
+
+      setErrorMessage("User registered successfully");
+      // Reset state variables
+      setFirstName("");
+      setMiddleName("");
+      setLastName("");
+      setBirthDate("");
+      setGender("");
+      setAddress("");
+      setUserName("");
+      setEmailAdd("");
+      setRole("");
+      setContactNo("");
+      setNewPassw("");
+      setConfPassw("");
+    } else {
+      setErrorMessage(
+        "Please fill in all details and make sure phone number is valid and passwords match."
+      );
+    }
   };
+
 
   return (
     <div className="container mt-5">
@@ -237,6 +260,7 @@ const UserRegistration = () => {
             </div>
           </div>
         </div>
+        <div style={{ color: 'red' }}>{errorMessage}</div>
       </form>
     </div>
   );
