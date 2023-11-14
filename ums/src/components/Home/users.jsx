@@ -2,7 +2,12 @@ import IconButton from "@mui/material/IconButton";
 import defUserImage from "../../asset/defUserImage.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
-import {AiFillCloseCircle,AiOutlineCaretLeft,AiOutlineCaretRight,AiOutlineEllipsis,} from "react-icons/ai";
+import {
+  AiFillCloseCircle,
+  AiOutlineCaretLeft,
+  AiOutlineCaretRight,
+  AiOutlineEllipsis,
+} from "react-icons/ai";
 import { BiSortAlt2 } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
@@ -134,10 +139,10 @@ const Users = () => {
   }
 
   const [visible, setVisible] = useState(false);
-  
+
   return (
     <>
-      <div className="content-wrapper" style={{ backgroundColor: '#ffffff'}}>
+      <div className="content-wrapper">
         <div className="wrapper">
           <h3 className="d-sm-block d-md-block d-lg-none text-center">
             <a
@@ -147,7 +152,7 @@ const Users = () => {
                 fontSize: 18,
                 textDecoration: "underline",
                 color: "black",
-                fontWeight:"bold",
+                fontWeight: "bold",
               }}>
               {" "}
               Users
@@ -167,24 +172,65 @@ const Users = () => {
           <h2>Users</h2>
           <div className="d-flex justify-content-end align-items-center mb-2">
             <div className="dropdown mr-2">
+              <button
+                className="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+                <BiSortAlt2 />
+              </button>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton">
+                <button className="dropdown-item" onClick={sortById}>
+                  ID
+                </button>
+                <button className="dropdown-item" onClick={sortByName}>
+                  Name
+                </button>
+                <button className="dropdown-item" onClick={sortByRole}>
+                  Role
+                </button>
+                <button className="dropdown-item" onClick={sortByDc}>
+                  Date Created
+                </button>
+                <button className="dropdown-item" onClick={sortByStatus}>
+                  Status
+                </button>
+              </ul>
             </div>
-
-            <div className="d-flex justify-content-between align-items-center mb-2">
             <div className="search-container">
-            <input type="text" placeholder="Search" value={searchPhrase} onChange={search} className="search-input" style={{ width: "200px" }} />
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchPhrase}
+                onChange={search}
+                style={{ width: "200px" }}
+              />
+            </div>
+            <button className="btn btn-primary">
+              <Link
+                className="text-white"
+                style={{ textDecoration: "none" }}
+                to="/user/adduser">
+                Add User
+              </Link>
+            </button>
           </div>
           <div className="table-responsive">
             <table className="table table d-none d-md-table">
               <thead>
                 <tr>
-                <th className="text-center">#</th>
-                  <th ></th>
-                  <th className="text-center">Name</th>
-                  <th className="text-center">Email</th>
-                  <th className="text-center">Role</th>
-                  <th className="text-center">Date Created</th>
-                  <th className="text-center">Status</th>
-                  <th className="text-center">Actions</th>
+                  <th>#</th>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Date Created</th>
+                  <th>Status</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -197,15 +243,12 @@ const Users = () => {
                         alt="Profile Image"
                         style={{}}></img>
                     </td>
-                    <td className="centered-cell">{user.Name}</td>
-                    <td className="centered-cell">{user.Email}</td>
-                    <td className="centered-cell">{user.Role}</td>
-                    <td className="centered-cell">{user.Date_Created}</td>
-                    <td className="centered-cell">{user.Status}</td>
+                    <td>{user.Name}</td>
+                    <td>{user.Email}</td>
+                    <td>{user.Role}</td>
+                    <td>{user.Date_Created}</td>
+                    <td>{user.Status}</td>
                     <td>
-
-                    
-
                       <div className="d-flex d-sm-inline-flex">
                         <span className=" ">
                           <Link to="/user/adduser">
@@ -234,43 +277,42 @@ const Users = () => {
                 ))}
               </tbody>
             </table>
-   {/* Mobile table Veiw */}
-   
-  <table class="table table-responsive d-md-none table-borderless" >
-  <thead >
-  {usersToDisplay.map((user) => (
-    <tr class="rounded-pill">
-    <td >{user.ID}</td>
-    <td>
-      <img
-      src={defUserImage}
-      alt="Profile Image"
-      style={{}}></img>
-    </td>
-      <td>{user.Name}</td>
-      <td>{user.Role}</td>
-      <td>{user.Status}</td>
-      <td>
-      <div className="d-flex d-sm-inline-flex">
-        <span className=" ">
-          <Link to="/user/adduser">
-            <IconButton
-             className="text-success"
-                style={smallButtonStyle}>
-                  <BsFillPencilFill />
-                    </IconButton>
-                    </Link>
-          </span>
-           <span className="d-flex d-sm-inline-flex ">
-                          <Delete />
-           </span>
-       </div>
-      </td>
-    </tr>
-    ))}
-  </thead>
-</table>
+            {/* Mobile table Veiw */}
 
+            <table class="table table-responsive d-md-none table-borderless">
+              <thead>
+                {usersToDisplay.map((user) => (
+                  <tr class="rounded-pill">
+                    <td>{user.ID}</td>
+                    <td>
+                      <img
+                        src={defUserImage}
+                        alt="Profile Image"
+                        style={{}}></img>
+                    </td>
+                    <td>{user.Name}</td>
+                    <td>{user.Role}</td>
+                    <td>{user.Status}</td>
+                    <td>
+                      <div className="d-flex d-sm-inline-flex">
+                        <span className=" ">
+                          <Link to="/user/adduser">
+                            <IconButton
+                              className="text-success"
+                              style={smallButtonStyle}>
+                              <BsFillPencilFill />
+                            </IconButton>
+                          </Link>
+                        </span>
+                        <span className="d-flex d-sm-inline-flex ">
+                          <Delete />
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </thead>
+            </table>
           </div>
           <div className="d-block">
             <nav className="d-flex justify-content-end align-items-center mb-2 ">
@@ -307,6 +349,5 @@ const Users = () => {
     </>
   );
 };
- 
 
 export default Users;
