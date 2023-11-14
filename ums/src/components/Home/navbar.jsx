@@ -108,12 +108,11 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
         <div className="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
           <ul className="navbar-nav w-100">
             <li className="nav-item w-100">
               <h4 className="d-m-block d-md-block d-lg-none text-center">
-                User Managemesnt
+                User Management
               </h4>
             </li>
           </ul>
