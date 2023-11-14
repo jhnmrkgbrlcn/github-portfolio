@@ -311,8 +311,7 @@ const Users = () => {
     ))}
   </thead>
 </table>
-
-          </div>
+</div>
           <div class="d-block">
             <nav class="d-flex justify-content-end align-items-center mb-2 ">
               <ul className="pagination">

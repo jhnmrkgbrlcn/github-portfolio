@@ -220,9 +220,9 @@ const Users = () => {
             <button className="btn btn-primary">Add Roles</button>
           </div>
           <div className="table-responsive">
-            <table className="table table-borderless">
+            <table className="table table d-none d-md-table">
               <thead>
-                <tr className="table-active d-none d-md-table-row" >
+                <tr className=" d-none d-md-table-row" >
                   <th>#</th>
                   <th>Name</th>
                   <th>Handle</th>
@@ -233,7 +233,7 @@ const Users = () => {
               </thead>
               <tbody>
                 {Object.keys(nameCounts).map((role, index) => (
-                  <tr className="table-active" key={index}>
+                  <tr key={index}>
                     <td>{index + 1}</td>
                     <td>{role}</td>
                     <td>{}</td>
@@ -292,6 +292,39 @@ const Users = () => {
             </ul>
           </nav>
         </div>
+         {/* Mobile table Veiw */}
+  <table class="table table-responsive d-md-none table-borderless" >
+  <thead >
+  {Object.keys(nameCounts).map((role, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{role}</td>
+                    <td>{}</td>
+                    <td>{nameCounts[role]}</td>
+      <td>
+      <div className="d-flex d-sm-inline-flex ">
+                        <span className="">
+                          <IconButton
+                            className=" text-success"
+                            style={smallButtonStyle}>
+                            <BsFillPencilFill />
+                          </IconButton>
+                        </span>
+                        <span className=" d-flex d-sm-inline-flex">
+                          <IconButton
+                            className=" text-danger"
+                            style={smallButtonStyle}>
+                            <AiFillCloseCircle />
+                          </IconButton>
+                        </span>
+                      </div>
+      </td>
+    </tr>
+    ))}
+  </thead>
+</table>
+
+         
       </div>
     </>
   );
