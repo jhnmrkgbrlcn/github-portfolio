@@ -7,7 +7,7 @@ import {
   AiOutlineCaretRight,
   AiOutlineEllipsis,
 } from "react-icons/ai";
-import { BiSortAlt2, BiUnderline } from "react-icons/bi";
+import { BiSortAlt2 } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
 
@@ -144,7 +144,6 @@ const Users = () => {
     return nameCounts;
   };
   const nameCounts = countRepeatedNames(users);
-
   return (
     <>
       <div className="content-wrapper">
@@ -175,94 +174,119 @@ const Users = () => {
         <div className="wrapper">
           <h2>Roles</h2>
           <div className="d-flex justify-content-end align-items-center mb-2">
-            <div className="dropdown mr-2"></div>
-
-            <div className="d-flex justify-content-between align-items-center mb-2">
-              <div className="search-container">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  value={searchPhrase}
-                  onChange={search}
-                  className="search-input"
-                  style={{ width: "200px" }}
-                />
-              </div>
-            </div>
-            <div className="table-responsive">
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Handle</th>
-                    <th>Date Created</th>
-                    <th>No.of Users</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {Object.keys(nameCounts).map((role, index) => (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>{role}</td>
-                      <td>{}</td>
-                      <td>{Date}</td>
-                      <td>{nameCounts[role]}</td>
-                      <td>
-                        <div className="d-flex d-sm-inline-flex ">
-                          <span className="">
-                            <IconButton
-                              className=" text-success"
-                              style={smallButtonStyle}>
-                              <BsFillPencilFill />
-                            </IconButton>
-                          </span>
-                          <span className=" d-none d-sm-none  d-md-none d-lg-block">
-                            <IconButton
-                              className=" text-danger"
-                              style={smallButtonStyle}>
-                              <AiFillCloseCircle />
-                            </IconButton>
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <nav className="d-none d-md-flex flex-shrink-0 justify-content-end align-items-center mb-2">
-              <ul className="pagination ">
-                <li className="page-item">
-                  <a href="#" className="page-link" onClick={prePage}>
-                    <AiOutlineCaretLeft />
-                  </a>
-                </li>
-                {pageNumbers.map((number) => (
-                  <li
-                    className={`page-item ${
-                      currentPage === number ? "active" : ""
-                    }`}
-                    key={number}>
-                    <a
-                      href="#"
-                      className="page-link"
-                      onClick={() => changeCPage(number)}>
-                      {number}
-                    </a>
-                  </li>
-                ))}
-                <li className="page-item">
-                  <a href="#" className="page-link" onClick={nextPage}>
-                    <AiOutlineCaretRight />
-                  </a>
-                </li>
+            <div className="dropdown mr-2">
+              <button
+                className="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false">
+                <BiSortAlt2 />
+              </button>
+              <ul
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton">
+                <button className="dropdown-item" onClick={sortById}>
+                  ID
+                </button>
+                <button className="dropdown-item" onClick={sortByName}>
+                  Name
+                </button>
+                <button className="dropdown-item" onClick={sortByRole}>
+                  Handle
+                </button>
+                <button className="dropdown-item" onClick={sortByDc}>
+                  Date Created
+                </button>
+                <button className="dropdown-item" onClick={sortByStatus}>
+                  No.of Users
+                </button>
               </ul>
-            </nav>
+            </div>
+            <div className="search-container">
+              <input
+                type="text"
+                placeholder="Search"
+                value={searchPhrase}
+                onChange={search}
+                style={{ width: "200px" }}
+              />
+            </div>
+            <button className="btn btn-primary">Add Roles</button>
           </div>
+          <div className="table-responsive">
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Handle</th>
+                  <th>Date Created</th>
+                  <th>No.of Users</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.keys(nameCounts).map((role, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{role}</td>
+                    <td>{}</td>
+                    <td>{Date}</td>
+                    <td>{nameCounts[role]}</td>
+                    <td>
+                      <div className="d-flex d-sm-inline-flex ">
+                        <span className="">
+                          <IconButton
+                            className=" text-success"
+                            style={smallButtonStyle}>
+                            <BsFillPencilFill />
+                          </IconButton>
+                        </span>
+                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                          <IconButton
+                            className=" text-danger"
+                            style={smallButtonStyle}>
+                            <AiFillCloseCircle />
+                          </IconButton>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <nav className="d-flex justify-content-end align-items-center mb-2">
+            <ul className="pagination">
+              <li className="page-item">
+                <a href="#" className="page-link" onClick={prePage}>
+                  <AiOutlineCaretLeft />
+                </a>
+              </li>
+              {pageNumbers.map((number) => (
+                <li
+                  className={`page-item ${
+                    currentPage === number ? "active" : ""
+                  }`}
+                  key={number}>
+                  <a
+                    href="#"
+                    className="page-link"
+                    onClick={() => changeCPage(number)}>
+                    {number}
+                  </a>
+                </li>
+              ))}
+              <li className="page-item">
+                <a href="#" className="page-link" onClick={nextPage}>
+                  <AiOutlineCaretRight />
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </>
