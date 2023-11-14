@@ -19,7 +19,7 @@
       "ID": 3,
       "Name": "Michael Davis",
       "Email": "michael.davis@example.com",
-      "Role": "hatdog",
+      "Role": "SuperUsers",
       "Date_Created": "2023-11-03",
       "Status": "active"
   },
@@ -27,7 +27,7 @@
       "ID": 4,
       "Name": "Sarah Wilson",
       "Email": "sarah.wilson@example.com",
-      "Role": "ewan",
+      "Role": "SuperUsers",
       "Date_Created": "2023-11-04",
       "Status": "offline"
   },
@@ -51,7 +51,7 @@
       "ID": 7,
       "Name": "Matthew Clark",
       "Email": "matthew.clark@example.com",
-      "Role": "hatdog",
+      "Role": "SuperUsers",
       "Date_Created": "2023-11-01",
       "Status": "active"
   },
@@ -59,7 +59,7 @@
       "ID": 8,
       "Name": "Emily White",
       "Email": "emily.white@example.com",
-      "Role": "ewan",
+      "Role": "SuperUsers",
       "Date_Created": "2023-11-02",
       "Status": "offline"
   },
@@ -83,7 +83,7 @@
       "ID": 11,
       "Name": "Robert Taylor",
       "Email": "robert.taylor@example.com",
-      "Role": "hatdog",
+      "Role": "SuperUsers",
       "Date_Created": "2023-11-05",
       "Status": "active"
   },
@@ -91,7 +91,7 @@
       "ID": 12,
       "Name": "Linda Hall",
       "Email": "linda.hall@example.com",
-      "Role": "ewan",
+      "Role": "SuperUsers",
       "Date_Created": "2023-11-06",
       "Status": "offline"
   },
@@ -115,7 +115,7 @@
       "ID": 15,
       "Name": "Charles Harris",
       "Email": "charles.harris@example.com",
-      "Role": "hatdog",
+      "Role": "SuperUsers",
       "Date_Created": "2023-11-03",
       "Status": "active"
   },
@@ -123,7 +123,7 @@
       "ID": 16,
       "Name": "Elizabeth Turner",
       "Email": "elizabeth.turner@example.com",
-      "Role": "ewan",
+      "Role": "SuperUsers",
       "Date_Created": "2023-11-04",
       "Status": "offline"
   },
@@ -147,7 +147,7 @@
       "ID": 19,
       "Name": "Christopher Wilson",
       "Email": "christopher.wilson@example.com",
-      "Role": "hatdog",
+      "Role": "SuperUsers",
       "Date_Created": "2023-11-01",
       "Status": "active"
   },
@@ -155,7 +155,7 @@
       "ID": 20,
       "Name": "Jessica Smith",
       "Email": "jessica.smith@example.com",
-      "Role": "ewan",
+      "Role": "SuperUsers",
       "Date_Created": "2023-11-02",
       "Status": "offline"
   }

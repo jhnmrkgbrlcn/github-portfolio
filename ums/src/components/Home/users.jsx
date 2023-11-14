@@ -1,28 +1,22 @@
 import IconButton from "@mui/material/IconButton";
-import defUserImage from "../../asset/defUserImage.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import {
-  AiFillCloseCircle,
   AiOutlineCaretLeft,
   AiOutlineCaretRight,
-  AiOutlineEllipsis,
+  AiOutlineEllipsis
 } from "react-icons/ai";
 import { BiSortAlt2 } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
-import Data from "./Data.json";
 import { Link } from "react-router-dom";
+import defUserImage from "../../asset/defUserImage.png";
+import Data from "./Data.json";
 import Delete from "./delete";
 
 const Users = () => {
   const [users, setUsers] = useState(Data);
-  const [currentPage, setCurrentPage] = useState(1);
-  const usersPerPage = 10;
-  const lastIndex = currentPage * usersPerPage;
-  const firstIndex = lastIndex - usersPerPage;
-  const usersToDisplay = users.slice(firstIndex, lastIndex);
-  const totalPages = Math.ceil(users.length / usersPerPage);
-  //sort shit
+ 
+  //sort 
   const [sorted, setSorted] = useState({ sorted: "id", reversed: false });
 
   const sortById = () => {
@@ -86,7 +80,7 @@ const Users = () => {
     });
     setUsers(usersCopy);
   };
-  // search shit
+  // search 
   const [searchPhrase, setSearchPhrase] = useState("");
   const search = (event) => {
     const searchTerm = event.target.value.toLowerCase();
@@ -106,12 +100,17 @@ const Users = () => {
   const smallButtonStyle = {
     fontSize: "13px",
   };
-  //range of page number
-  const pageRange = 5;
+  //pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const usersPerPage = 5;
+  const lastIndex = currentPage * usersPerPage;
+  const firstIndex = lastIndex - usersPerPage;
+  const usersToDisplay = users.slice(firstIndex, lastIndex);
+  const totalPages = Math.ceil(users.length / usersPerPage);
+  const pageRange = 6;
   let minPage = Math.max(1, currentPage - Math.floor(pageRange / 2));
   let maxPage = minPage + pageRange - 1;
 
-  // Adjust the range for the last set of pages
   if (maxPage > totalPages) {
     maxPage = totalPages;
     minPage = Math.max(1, maxPage - pageRange + 1);
@@ -138,7 +137,7 @@ const Users = () => {
     }
   }
 
-  const [visible, setVisible] = useState(false);
+  
   return (
     <>
       <div className="content-wrapper">
