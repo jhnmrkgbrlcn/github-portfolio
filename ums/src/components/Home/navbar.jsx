@@ -93,7 +93,7 @@ const Navbar = () => {
                 </li>
 
                 <li className="nav-item menu-items ">
-                  <Link to="/dashboard" className="nav-link text-black">
+                  <Link to="/settings" className="nav-link text-black">
                     <SettingsIcon style={{ margin: 5 }} />
                     Settings
                   </Link>
