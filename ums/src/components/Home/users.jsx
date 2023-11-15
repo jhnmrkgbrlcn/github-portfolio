@@ -176,7 +176,7 @@ const Users = () => {
                     data-bs-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
-                    style={{ marginRight: "10px", marginTop: "2px" }}
+                    style={{ marginRight: "10px", marginTop: "2px", marginBottom: "10px" }}
                                   >
                   <BiSortAlt2 />
                   </button>

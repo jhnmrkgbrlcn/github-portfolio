@@ -11,7 +11,7 @@ import { BiSortAlt2 } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
 
-const Users = () => {
+const Role = () => {
   const [users, setUsers] = useState(Data);
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 10;
@@ -182,7 +182,7 @@ const Users = () => {
                 data-bs-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
-                style={{ marginRight: "10px", marginTop: "2px" }}
+                style={{ marginRight: "10px", marginTop: "2px", marginBottom: "10px" }}
                               >
                 <BiSortAlt2 />
               </button>
@@ -224,7 +224,7 @@ const Users = () => {
                 <tr>
                   <th className="text-center">#</th>
                   <th className="text-center">Name</th>
-                  <th className="text-center">Handle</th>
+                  <th className="text-center">Handles</th>
                   <th className="text-center">Date Created</th>
                   <th className="text-center">No.of Users</th>
                   <th className="text-center">Action</th>
@@ -305,4 +305,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default Role;
