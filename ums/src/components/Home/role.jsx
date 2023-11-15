@@ -7,7 +7,7 @@ import {
   AiOutlineCaretRight,
   AiOutlineEllipsis,
 } from "react-icons/ai";
-import { BiSortAlt2 } from "react-icons/bi";
+import { BiSortAlt2, BiUnderline } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
 
@@ -144,6 +144,7 @@ const Users = () => {
     return nameCounts;
   };
   const nameCounts = countRepeatedNames(users);
+
   return (
     <>
       <div className="content-wrapper">
@@ -152,7 +153,7 @@ const Users = () => {
             href="/users"
             style={{
               margin: 30,
-              fontSize: 15,
+              fontSize: 18,
               textDecoration: "none",
               color: "black",
             }}>
@@ -163,9 +164,10 @@ const Users = () => {
             href="/role"
             style={{
               margin: 25,
-              fontSize: 15,
-              textDecoration: "none",
+              fontSize: 18,
+              textDecoration: "underlined",
               color: "black",
+              fontWeight: "bold",
             }}>
             {" "}
             Roles
@@ -181,7 +183,12 @@ const Users = () => {
                 id="dropdownMenuButton"
                 data-bs-toggle="dropdown"
                 aria-haspopup="true"
-                aria-expanded="false">
+                aria-expanded="false"
+                style={{
+                  marginRight: "10px",
+                  marginTop: "3px",
+                  marginBottom: "10px",
+                }}>
                 <BiSortAlt2 />
               </button>
               <ul
@@ -204,63 +211,88 @@ const Users = () => {
                 </button>
               </ul>
             </div>
-            <div className="search-container">
-              <input
-                type="text"
-                placeholder="Search"
-                value={searchPhrase}
-                onChange={search}
-                style={{ width: "200px" }}
-              />
+
+            <div className="d-flex justify-content-between align-items-center mb-2">
+              <div className="search-container">
+                <input
+                  type="text"
+                  placeholder="Search"
+                  value={searchPhrase}
+                  onChange={search}
+                  className="search-input"
+                  style={{ width: "200px" }}
+                />
+              </div>
             </div>
-            <button className="btn btn-primary">Add Roles</button>
+
+            <div className="ml-2">
+              <button
+                className="btn btn-primary"
+                style={{ marginLeft: "10px", marginBottom: "10px" }}>
+                Add User
+              </button>
+            </div>
           </div>
+
           <div className="table-responsive">
-            <table className="table">
+            <table className="table table d-none d-md-table">
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Name</th>
-                  <th>Handle</th>
-                  <th>Date Created</th>
-                  <th>No.of Users</th>
-                  <th>Action</th>
+                  <th className="centered-cell">Name</th>
+                  <th className="centered-cell">Handle</th>
+                  <th className="centered-cell">Date Created</th>
+                  <th className="centered-cell">No.of Users</th>
+                  <th className="centered-cell">Action</th>
                 </tr>
               </thead>
               <tbody>
-                {Object.keys(nameCounts).map((role, index) => (
-                  <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{role}</td>
-                    <td>{}</td>
-                    <td>{Date}</td>
-                    <td>{nameCounts[role]}</td>
-                    <td>
-                      <div className="d-flex d-sm-inline-flex ">
-                        <span className="">
-                          <IconButton
-                            className=" text-success"
-                            style={smallButtonStyle}>
-                            <BsFillPencilFill />
-                          </IconButton>
-                        </span>
-                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
-                          <IconButton
-                            className=" text-danger"
-                            style={smallButtonStyle}>
-                            <AiFillCloseCircle />
-                          </IconButton>
-                        </span>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
+                {Object.keys(nameCounts).map((role, index) => {
+                  const roleUsers = users.filter((user) => user.Role === role);
+                  const dateCreated =
+                    roleUsers.length > 0 ? roleUsers[0].Date_Created : "";
+
+                  // Extract unique module names for the current role
+                  const uniqueModules = [
+                    ...new Set(roleUsers.flatMap((user) => user.Handles)),
+                  ];
+
+                  return (
+                    <tr key={index}>
+                      <td className="centered-cell">{index + 1}</td>
+                      <td className="centered-cell">{role}</td>
+                      <td className="centered-cell">
+                        {uniqueModules.join(", ")}
+                      </td>
+                      <td className="centered-cell">{dateCreated}</td>
+                      <td className="centered-cell">{nameCounts[role]}</td>
+                      <td className="centered-cell">
+                        <div className="d-flex d-sm-inline-flex ">
+                          <span className="">
+                            <IconButton
+                              className=" text-success"
+                              style={smallButtonStyle}>
+                              <BsFillPencilFill />
+                            </IconButton>
+                          </span>
+                          <span className=" d-flex d-sm-inline-flex">
+                            <IconButton
+                              className=" text-danger"
+                              style={smallButtonStyle}>
+                              <AiFillCloseCircle />
+                            </IconButton>
+                          </span>
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
 
-          <nav className="d-flex justify-content-end align-items-center mb-2">
-            <ul className="pagination">
+          <nav className="d-none d-md-flex flex-shrink-0 justify-content-end align-items-center mb-2">
+            <ul className="pagination ">
               <li className="page-item">
                 <a href="#" className="page-link" onClick={prePage}>
                   <AiOutlineCaretLeft />
@@ -288,6 +320,46 @@ const Users = () => {
             </ul>
           </nav>
         </div>
+
+        {/* Mobile table Veiw */}
+        <table className="table table-responsive-sm d-md-none table-borderless">
+          <thead className="table-responsive-md">
+            {Object.keys(nameCounts).map((role, index) => {
+              const roleUsers = users.filter((user) => user.Role === role);
+              // Extract unique module names for the current role
+              const uniqueModules = [
+                ...new Set(roleUsers.flatMap((user) => user.Handles)),
+              ];
+
+              return (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{role}</td>
+                  <td class="table-cell">{uniqueModules.join(", ")}</td>
+                  <td>{nameCounts[role]}</td>
+                  <td>
+                    <div className="d-flex d-sm-inline-flex ">
+                      <span className="">
+                        <IconButton
+                          className=" text-success"
+                          style={smallButtonStyle}>
+                          <BsFillPencilFill />
+                        </IconButton>
+                      </span>
+                      <span className=" d-flex d-sm-inline-flex">
+                        <IconButton
+                          className=" text-danger"
+                          style={smallButtonStyle}>
+                          <AiFillCloseCircle />
+                        </IconButton>
+                      </span>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
+          </thead>
+        </table>
       </div>
     </>
   );
