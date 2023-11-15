@@ -213,7 +213,6 @@ const Users = () => {
         </div>
         </div>
 
-
           <div className="table-responsive">
             <table className="table">
               <thead>
@@ -229,6 +228,7 @@ const Users = () => {
                 </tr>
               </thead>
               <tbody>
+
                 {usersToDisplay.map((user) => (
                   <tr key={user.ID}>
                     <td>{user.ID}</td>
@@ -304,7 +304,7 @@ const Users = () => {
             </nav>
           </div>
         </div>
-      </div>
+       </div>
     </>
   );
 };
