@@ -3,160 +3,217 @@
       "ID": 1,
       "Name": "John Smith",
       "Email": "john.smith@example.com",
-      "Role": "admin",
+      "Role": "Admin",
       "Date_Created": "2023-11-01",
-      "Status": "active"
+      "Status": "Active",
+      "Handles": ["User Management", "Role Management", "Settings"]
   },
   {
       "ID": 2,
       "Name": "Alice Johnson",
       "Email": "alice.johnson@example.com",
-      "Role": "user",
+      "Role": "User",
       "Date_Created": "2023-11-02",
-      "Status": "offline"
+      "Status": "Offline",
+      "Handles": ["View Dashboard", "Edit Profile", "Upload Files"]
   },
   {
       "ID": 3,
       "Name": "Michael Davis",
       "Email": "michael.davis@example.com",
-      "Role": "hatdog",
+
+      "Role": "Manager",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-03",
-      "Status": "active"
+      "Status": "Active",
+      "Handles": ["Manage Budget", "Create Project", "View Team Performance"]
   },
   {
       "ID": 4,
       "Name": "Sarah Wilson",
       "Email": "sarah.wilson@example.com",
-      "Role": "ewan",
+
+      "Role": "Director",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-04",
-      "Status": "offline"
+      "Status": "Offline",
+      "Handles": ["Board Meetings", "Policy Decision", "Strategic Planning"]
   },
   {
       "ID": 5,
       "Name": "James Brown",
       "Email": "james.brown@example.com",
-      "Role": "admin",
+      "Role": "Admin",
       "Date_Created": "2023-11-05",
-      "Status": "active"
+      "Status": "Active",
+      "Handles": ["User Management", "Role Management", "Settings"]
   },
   {
       "ID": 6,
       "Name": "Olivia Johnson",
       "Email": "olivia.johnson@example.com",
-      "Role": "user",
+      "Role": "User",
       "Date_Created": "2023-11-06",
-      "Status": "offline"
+      "Status": "Offline",
+      "Handles": ["View Dashboard", "Edit Profile", "Upload Files"]
   },
   {
       "ID": 7,
       "Name": "Matthew Clark",
       "Email": "matthew.clark@example.com",
-      "Role": "hatdog",
+      "Role": "Influencer"
+      "Role": "SuperUsers",
       "Date_Created": "2023-11-01",
-      "Status": "active"
+      "Status": "Active",
+      "Handles": ["Create Content", "Attend Events", "View Analytics"]
   },
   {
       "ID": 8,
       "Name": "Emily White",
       "Email": "emily.white@example.com",
-      "Role": "ewan",
+
+      "Role": "User",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-02",
-      "Status": "offline"
+      "Status": "Offline",
+      "Handles": ["View Dashboard", "Edit Profile", "Upload Files"]
   },
   {
       "ID": 9,
       "Name": "Daniel Lee",
       "Email": "daniel.lee@example.com",
-      "Role": "admin",
+      "Role": "Admin",
       "Date_Created": "2023-11-03",
-      "Status": "active"
+      "Status": "Active",
+      "Handles": ["User Management", "Role Management", "Settings"]
   },
   {
       "ID": 10,
       "Name": "Jennifer Anderson",
       "Email": "jennifer.anderson@example.com",
-      "Role": "user",
+      "Role": "User",
       "Date_Created": "2023-11-04",
-      "Status": "offline"
+      "Status": "Offline",
+      "Handles": ["View Dashboard", "Edit Profile", "Upload Files"]
   },
   {
       "ID": 11,
       "Name": "Robert Taylor",
       "Email": "robert.taylor@example.com",
-      "Role": "hatdog",
+
+      "Role": "Developer",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-05",
-      "Status": "active"
+      "Status": "Active",
+      "Handles": ["Coding", "Bug Fixing", "Code Review"]
   },
   {
       "ID": 12,
       "Name": "Linda Hall",
       "Email": "linda.hall@example.com",
-      "Role": "ewan",
+
+      "Role": "Designer",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-06",
-      "Status": "offline"
+      "Status": "Offline",
+      "Handles": ["Graphic Design", "Prototyping", "User Interface Design"]
   },
   {
       "ID": 13,
       "Name": "William Martinez",
       "Email": "william.martinez@example.com",
-      "Role": "admin",
+      "Role": "Admin",
       "Date_Created": "2023-11-01",
-      "Status": "active"
+      "Status": "Active",
+      "Handles": ["User Management", "Role Management", "Settings"]
   },
   {
       "ID": 14,
       "Name": "Patricia Adams",
       "Email": "patricia.adams@example.com",
-      "Role": "user",
+      "Role": "User",
       "Date_Created": "2023-11-02",
-      "Status": "offline"
+      "Status": "Offline",
+      "Handles": ["View Dashboard", "Edit Profile", "Upload Files"]
   },
   {
       "ID": 15,
       "Name": "Charles Harris",
       "Email": "charles.harris@example.com",
-      "Role": "hatdog",
+
+      "Role": "Tester",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-03",
-      "Status": "active"
+      "Status": "Active",
+      "Handles": ["Test Planning", "Test Execution", "Defect Reporting"]
   },
   {
       "ID": 16,
       "Name": "Elizabeth Turner",
       "Email": "elizabeth.turner@example.com",
-      "Role": "ewan",
+
+      "Role": "Consultant",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-04",
-      "Status": "offline"
+      "Status": "Offline",
+      "Handles": ["Client Meetingst", "Recommendations", "Project Evaluation"]
   },
   {
       "ID": 17,
       "Name": "Thomas Jackson",
       "Email": "thomas.jackson@example.com",
-      "Role": "admin",
+      "Role": "Admin",
       "Date_Created": "2023-11-05",
-      "Status": "active"
+      "Status": "Active",
+      "Handles": ["User Management", "Role Management", "Settings"]
   },
   {
       "ID": 18,
       "Name": "Mary Miller",
       "Email": "mary.miller@example.com",
-      "Role": "user",
+      "Role": "User",
       "Date_Created": "2023-11-06",
-      "Status": "offline"
+      "Status": "Offline",
+      "Handles": ["View Dashboard", "Edit Profile", "Upload Files"]
   },
   {
       "ID": 19,
       "Name": "Christopher Wilson",
       "Email": "christopher.wilson@example.com",
-      "Role": "hatdog",
+ 
+      "Role": "Team Lead",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-01",
-      "Status": "active"
+      "Status": "Active",
+      "Handles": ["Team Coordination", "Performance Reviews", "Mentoring"]
   },
   {
       "ID": 20,
       "Name": "Jessica Smith",
       "Email": "jessica.smith@example.com",
-      "Role": "ewan",
+ 
+      "Role": "Manager",
+
+      "Role": "SuperUsers",
+
       "Date_Created": "2023-11-02",
-      "Status": "offline"
+      "Status": "Offline",
+      "Handles": ["Manage Budget", "Create Project", "View Team Performance"]
   }
 ]
