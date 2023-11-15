@@ -288,7 +288,6 @@ const Users = () => {
               </tbody>
             </table>
             {/* Mobile table Veiw */}
-
             <table class="table table-responsive d-md-none table-borderless">
               <thead>
                 {usersToDisplay.map((user) => (
