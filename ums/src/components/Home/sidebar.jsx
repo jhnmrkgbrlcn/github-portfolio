@@ -28,6 +28,12 @@ const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item menu-items">
+            <Link to="/dashboard" className="nav-link">
+              <DashboardIcon style={{ margin: 5 }} />
+              Menu
+            </Link>
+          </li>
+          <li className="nav-item menu-items">
             <Link
               className="nav-link"
               type="button"
