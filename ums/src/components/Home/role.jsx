@@ -181,7 +181,9 @@ const Users = () => {
                 id="dropdownMenuButton"
                 data-bs-toggle="dropdown"
                 aria-haspopup="true"
-                aria-expanded="false">
+                aria-expanded="false"
+                style={{ marginRight: "10px", marginTop: "2px" }}
+                              >
                 <BiSortAlt2 />
               </button>
               <ul
@@ -204,38 +206,47 @@ const Users = () => {
                 </button>
               </ul>
             </div>
+            
+            <div className="d-flex justify-content-between align-items-center mb-2">
             <div className="search-container">
-              <input
-                type="text"
-                placeholder="Search"
-                value={searchPhrase}
-                onChange={search}
-                style={{ width: "200px" }}
-              />
-            </div>
-            <button className="btn btn-primary">Add Roles</button>
+            <input type="text" placeholder="Search" value={searchPhrase} onChange={search} className="search-input" style={{ width: "200px" }} />
           </div>
+          </div>
+
+        <div className="ml-2">
+         <button className="btn btn-primary" style={{marginLeft: "10px", marginBottom: "10px", }}>Add User</button>
+        </div>
+        </div>
+
           <div className="table-responsive">
             <table className="table">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Handle</th>
-                  <th>Date Created</th>
-                  <th>No.of Users</th>
-                  <th>Action</th>
+                  <th className="text-center">#</th>
+                  <th className="text-center">Name</th>
+                  <th className="text-center">Handle</th>
+                  <th className="text-center">Date Created</th>
+                  <th className="text-center">No.of Users</th>
+                  <th className="text-center">Action</th>
                 </tr>
               </thead>
               <tbody>
-                {Object.keys(nameCounts).map((role, index) => (
+              {Object.keys(nameCounts).map((role, index) => {
+              const roleUsers = users.filter(user => user.Role === role);
+              const dateCreated = roleUsers.length > 0 ? roleUsers[0].Date_Created : "";
+    
+              // Extract unique module names for the current role
+              const uniqueModules = [...new Set(roleUsers.flatMap(user => user.Handles))];
+    
+            return (
                   <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{role}</td>
-                    <td>{}</td>
-                    <td>{Date}</td>
-                    <td>{nameCounts[role]}</td>
-                    <td>
+                    <td className="centered-cell">{index + 1}</td>
+                    <td className="centered-cell">{role}</td>
+                    <td className="centered-cell">{uniqueModules.join(", ")}</td>
+                    <td className="centered-cell">{dateCreated}</td>
+                    <td className="centered-cell">{nameCounts[role]}</td>
+                    <td className="centered-cell">
+
                       <div className="d-flex d-sm-inline-flex ">
                         <span className="">
                           <IconButton
@@ -254,7 +265,8 @@ const Users = () => {
                       </div>
                     </td>
                   </tr>
-                ))}
+                );
+               })}   
               </tbody>
             </table>
           </div>
