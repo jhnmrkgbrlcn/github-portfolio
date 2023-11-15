@@ -259,35 +259,34 @@ const Users = () => {
             </table>
           </div>
 
-            <nav className="d-none d-md-flex flex-shrink-0 justify-content-end align-items-center mb-2">
-              <ul className="pagination ">
-                <li className="page-item">
-                  <a href="#" className="page-link" onClick={prePage}>
-                    <AiOutlineCaretLeft />
+          <nav className="d-flex justify-content-end align-items-center mb-2">
+            <ul className="pagination">
+              <li className="page-item">
+                <a href="#" className="page-link" onClick={prePage}>
+                  <AiOutlineCaretLeft />
+                </a>
+              </li>
+              {pageNumbers.map((number) => (
+                <li
+                  className={`page-item ${
+                    currentPage === number ? "active" : ""
+                  }`}
+                  key={number}>
+                  <a
+                    href="#"
+                    className="page-link"
+                    onClick={() => changeCPage(number)}>
+                    {number}
                   </a>
                 </li>
-                {pageNumbers.map((number) => (
-                  <li
-                    className={`page-item ${
-                      currentPage === number ? "active" : ""
-                    }`}
-                    key={number}>
-                    <a
-                      href="#"
-                      className="page-link"
-                      onClick={() => changeCPage(number)}>
-                      {number}
-                    </a>
-                  </li>
-                ))}
-                <li className="page-item">
-                  <a href="#" className="page-link" onClick={nextPage}>
-                    <AiOutlineCaretRight />
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
+              ))}
+              <li className="page-item">
+                <a href="#" className="page-link" onClick={nextPage}>
+                  <AiOutlineCaretRight />
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </>
