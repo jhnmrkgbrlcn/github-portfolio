@@ -3,7 +3,7 @@ import List from "./Examples/list";
 import UseState from "./Examples/sampleRam";
 import SampleRam from "./Examples/useState";
 
-import { Outlet, Outlet, Route, RouterProvider, Routes, createBrowserRouter } from "react-router-dom";
+import { Outlet, Route, RouterProvider, Routes, createBrowserRouter } from "react-router-dom";
 import Home from "./components/Home/home";
 import Login from "./components/Home/login";
 import LogsTable from "./components/Home/logsTable";

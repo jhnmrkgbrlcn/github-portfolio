@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { propTypes } from "react-bootstrap/esm/Image";
 import {
-    AiFillCloseCircle,
-    AiOutlineCaretLeft,
-    AiOutlineCaretRight,
-    AiOutlineEllipsis,
+  AiFillCloseCircle,
+  AiOutlineCaretLeft,
+  AiOutlineCaretRight,
+  AiOutlineEllipsis,
 } from "react-icons/ai";
 import { BiSortAlt2 } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
@@ -38,39 +38,45 @@ return (
                 }
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody>     
                 {
                     items.map(item => {
-                        return (<td>{item}</td>);
+                        return (
+                          <tr>
+                            <td>{item.id}</td>
+                            <td>{item.description}</td>
+                            <td>{item.time}</td>
+                            <td>{item.date}</td>
+                            <td>{item.user}</td>
+                            <td>
+                              <div className="d-flex d-sm-inline-flex">
+                                  <span className=" ">
+                                    <Link to="/user/adduser">
+                                      <IconButton
+                                        className="text-success"
+                                        style={smallButtonStyle}>
+                                        <BsFillPencilFill />
+                                      </IconButton>
+                                    </Link>
+                                  </span>
+                                  <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                                    <Delete />
+                                  </span>
+                                  <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                                    <Link to="/user/profile">
+                                      <IconButton
+                                        className="text-dark"
+                                        style={smallButtonStyle}>
+                                        <AiOutlineEllipsis />
+                                      </IconButton>
+                                    </Link>
+                                  </span>
+                                </div>
+                              </td>
+                            </tr>
+                        );
                     })
                 }
-                </tr>
-                <td>
-                    <div className="d-flex d-sm-inline-flex">
-                        <span className=" ">
-                          <Link to="/user/adduser">
-                            <IconButton
-                              className="text-success"
-                              style={smallButtonStyle}>
-                              <BsFillPencilFill />
-                            </IconButton>
-                          </Link>
-                        </span>
-                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
-                          <Delete />
-                        </span>
-                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
-                          <Link to="/user/profile">
-                            <IconButton
-                              className="text-dark"
-                              style={smallButtonStyle}>
-                              <AiOutlineEllipsis />
-                            </IconButton>
-                          </Link>
-                        </span>
-                      </div>
-                </td>
             </tbody>
             
         </table>

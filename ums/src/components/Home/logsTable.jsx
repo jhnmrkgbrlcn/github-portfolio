@@ -9,6 +9,7 @@ import {
     AiOutlineCaretRight,
     AiOutlineEllipsis,
 } from "react-icons/ai";
+import LogData from "../Data/logs.json";
 
 import { BsFillPencilFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -18,11 +19,13 @@ import TableControl from "../controls/tableControl";
 import Data from "./Data.json";
 import Delete from "./delete";
 
+
+
 const LogsTable = ({
     name
 }) => {
     const headers = ["#", "Description", "Time Created", "Date Created", "User", "Actions"];
-    const items = ["1", "test", "00:00:00", "01/01/2001", "test_user"];
+
 return (                                                                
     <>
     <div className="content-wrapper">
@@ -33,7 +36,7 @@ return (
                 <SearchControl name="search-name"/>
             </div>
             
-            <TableControl headers={headers} items={items} />
+            <TableControl headers={headers} items={LogData} />
         </div>
     </div>
     </>
