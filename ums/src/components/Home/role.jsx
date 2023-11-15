@@ -1,12 +1,7 @@
 import IconButton from "@mui/material/IconButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
-import {
-  AiFillCloseCircle,
-  AiOutlineCaretLeft,
-  AiOutlineCaretRight,
-  AiOutlineEllipsis,
-} from "react-icons/ai";
+import {AiFillCloseCircle,AiOutlineCaretLeft,AiOutlineCaretRight,AiOutlineEllipsis,} from "react-icons/ai";
 import { BiSortAlt2 } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
@@ -146,118 +141,76 @@ const Users = () => {
   const nameCounts = countRepeatedNames(users);
   return (
     <>
-      <div className="content-wrapper">
-        <h3 className="d-sm-block d-md-block d-lg-none text-center">
-          <a
-            href="/users"
-            style={{
-              margin: 30,
-              fontSize: 15,
-              textDecoration: "none",
-              color: "black",
-            }}>
-            {" "}
-            Users
-          </a>
-          <a
-            href="/role"
-            style={{
-              margin: 25,
-              fontSize: 15,
-              textDecoration: "none",
-              color: "black",
-            }}>
-            {" "}
-            Roles
-          </a>
-        </h3>
+      <div className="content-wrapper" style={{ backgroundColor: '#ffffff'}}>
         <div className="wrapper">
           <h2>Roles</h2>
           <div className="d-flex justify-content-end align-items-center mb-2">
             <div className="dropdown mr-2">
-              <button
-                className="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false">
-                <BiSortAlt2 />
-              </button>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="dropdownMenuButton">
-                <button className="dropdown-item" onClick={sortById}>
-                  ID
-                </button>
-                <button className="dropdown-item" onClick={sortByName}>
-                  Name
-                </button>
-                <button className="dropdown-item" onClick={sortByRole}>
-                  Handle
-                </button>
-                <button className="dropdown-item" onClick={sortByDc}>
-                  Date Created
-                </button>
-                <button className="dropdown-item" onClick={sortByStatus}>
-                  No.of Users
-                </button>
-              </ul>
             </div>
+
+            <div className="d-flex justify-content-between align-items-center mb-2">
             <div className="search-container">
-              <input
-                type="text"
-                placeholder="Search"
-                value={searchPhrase}
-                onChange={search}
-                style={{ width: "200px" }}
-              />
-            </div>
-            <button className="btn btn-primary">Add Roles</button>
+            <input type="text" placeholder="Search" value={searchPhrase} onChange={search} className="search-input" style={{ width: "200px" }} />
           </div>
-          <div className="table-responsive">
+          </div>
+
+        <div className="ml-2">
+         <button className="btn btn-primary" style={{marginLeft: "10px", marginBottom: "10px", }}>Add User</button>
+        </div>
+        </div>
+
+          
+          <div className="table-container">
             <table className="table">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Handle</th>
-                  <th>Date Created</th>
-                  <th>No.of Users</th>
-                  <th>Action</th>
+                  <th className="text-center">#</th>
+                  <th className="text-center">Name</th>
+                  <th className="text-center">Handle</th>
+                  <th className="text-center">Date Created</th>
+                  <th className="text-center">No. of Users</th>
+                  <th className="text-center">Action</th>
                 </tr>
               </thead>
+
               <tbody>
-                {Object.keys(nameCounts).map((role, index) => (
-                  <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{role}</td>
-                    <td>{}</td>
-                    <td>{Date}</td>
-                    <td>{nameCounts[role]}</td>
-                    <td>
-                      <div className="d-flex d-sm-inline-flex ">
-                        <span className="">
-                          <IconButton
-                            className=" text-success"
-                            style={smallButtonStyle}>
-                            <BsFillPencilFill />
-                          </IconButton>
-                        </span>
-                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
-                          <IconButton
-                            className=" text-danger"
-                            style={smallButtonStyle}>
-                            <AiFillCloseCircle />
-                          </IconButton>
-                        </span>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+
+              {Object.keys(nameCounts).map((role, index) => {
+              const roleUsers = users.filter(user => user.Role === role);
+              const dateCreated = roleUsers.length > 0 ? roleUsers[0].Date_Created : "";
+    
+              // Extract unique module names for the current role
+              const uniqueModules = [...new Set(roleUsers.flatMap(user => user.Handles))];
+    
+      return (
+          <tr key={index}>
+           <td className="centered-cell">{index + 1}</td>
+            <td className="centered-cell">{role}</td>
+           <td className="centered-cell">{uniqueModules.join(", ")}</td>
+           <td className="centered-cell">{dateCreated}</td>
+           <td className="centered-cell">{nameCounts[role]}</td>
+            <td className="centered-cell">
+
+
+               <div className="d-flex d-sm-inline-flex ">
+               <span className="">
+              <IconButton className=" text-success" style={smallButtonStyle}>
+                <BsFillPencilFill />
+              </IconButton>
+                </span>
+              <span className=" d-none d-sm-none d-md-none d-lg-block">
+                 <IconButton className=" text-danger" style={smallButtonStyle}>
+                   <AiFillCloseCircle />
+                </IconButton>
+               </span>
+              </div>
+            </td>
+          </tr>
+        );
+     })}
+    </tbody>
+    </table>
+    </div>
 
           <nav className="d-flex justify-content-end align-items-center mb-2">
             <ul className="pagination">

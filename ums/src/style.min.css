@@ -20797,6 +20797,39 @@
     width: 100%;
     -webkit-flex-grow: 1;
     flex-grow: 1; }
+
+    .content-wrapper {
+      background-color: #ffffff;
+    }
+      
+    .btn-primary {
+      background-color: #1e329d;
+    }
+      
+    .table-container {
+      border: 1px solid #ccc; 
+      padding: 20px; 
+      border-radius: 10px; 
+    }
+      
+    .centered-cell {
+      text-align: center; 
+      vertical-align: middle; 
+    }
+  
+    .selected-row:hover{
+      background-color: #f2f2f2; 
+      cursor: pointer
+    }
+  
+    .search-input:focus {
+      border: 1.1px solid gray;
+      
+      border-radius: 1px;
+      width: 700px;
+      background-color: #f2f2f2;
+    }
+  
   
   /*# sourceMappingURL=maps/style.css.map */
   

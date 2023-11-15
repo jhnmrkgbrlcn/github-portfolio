@@ -2,12 +2,7 @@ import IconButton from "@mui/material/IconButton";
 import defUserImage from "../../asset/defUserImage.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
-import {
-  AiFillCloseCircle,
-  AiOutlineCaretLeft,
-  AiOutlineCaretRight,
-  AiOutlineEllipsis,
-} from "react-icons/ai";
+import {AiFillCloseCircle,AiOutlineCaretLeft,AiOutlineCaretRight,AiOutlineEllipsis,} from "react-icons/ai";
 import { BiSortAlt2 } from "react-icons/bi";
 import { BsFillPencilFill } from "react-icons/bs";
 import Data from "./Data.json";
@@ -141,94 +136,37 @@ const Users = () => {
   const [visible, setVisible] = useState(false);
   return (
     <>
-      <div className="content-wrapper">
+      <div className="content-wrapper" style={{ backgroundColor: '#ffffff'}}>
         <div className="wrapper">
-          <h3 className="d-sm-block d-md-block d-lg-none text-center">
-            <a
-              href="/users"
-              style={{
-                margin: 30,
-                fontSize: 15,
-                textDecoration: "none",
-                color: "black",
-              }}>
-              {" "}
-              Users
-            </a>
-            <a
-              href="/role"
-              style={{
-                margin: 25,
-                fontSize: 15,
-                textDecoration: "none",
-                color: "black",
-              }}>
-              {" "}
-              Roles
-            </a>
-          </h3>
           <h2>Users</h2>
           <div className="d-flex justify-content-end align-items-center mb-2">
             <div className="dropdown mr-2">
-              <button
-                className="btn btn-secondary dropdown-toggle"
-                type="button"
-                id="dropdownMenuButton"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false">
-                <BiSortAlt2 />
-              </button>
-              <ul
-                className="dropdown-menu"
-                aria-labelledby="dropdownMenuButton">
-                <button className="dropdown-item" onClick={sortById}>
-                  ID
-                </button>
-                <button className="dropdown-item" onClick={sortByName}>
-                  Name
-                </button>
-                <button className="dropdown-item" onClick={sortByRole}>
-                  Role
-                </button>
-                <button className="dropdown-item" onClick={sortByDc}>
-                  Date Created
-                </button>
-                <button className="dropdown-item" onClick={sortByStatus}>
-                  Status
-                </button>
-              </ul>
             </div>
+
+            <div className="d-flex justify-content-between align-items-center mb-2">
             <div className="search-container">
-              <input
-                type="text"
-                placeholder="Search"
-                value={searchPhrase}
-                onChange={search}
-                style={{ width: "200px" }}
-              />
-            </div>
-            <button className="btn btn-primary">
-              <Link
-                className="text-white"
-                style={{ textDecoration: "none" }}
-                to="/user/adduser">
-                Add User
-              </Link>
-            </button>
+            <input type="text" placeholder="Search" value={searchPhrase} onChange={search} className="search-input" style={{ width: "200px" }} />
           </div>
-          <div className="table-responsive">
+          </div>
+
+        <div className="ml-2">
+         <button className="btn btn-primary" style={{marginLeft: "10px", marginBottom: "10px", }}>Add User</button>
+        </div>
+        </div>
+
+        
+          <div className="table-container">
             <table className="table">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th></th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Role</th>
-                  <th>Date Created</th>
-                  <th>Status</th>
-                  <th>Actions</th>
+                <th className="text-center">#</th>
+                  <th ></th>
+                  <th className="text-center">Name</th>
+                  <th className="text-center">Email</th>
+                  <th className="text-center">Role</th>
+                  <th className="text-center">Date Created</th>
+                  <th className="text-center">Status</th>
+                  <th className="text-center">Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -241,12 +179,15 @@ const Users = () => {
                         alt="Profile Image"
                         style={{}}></img>
                     </td>
-                    <td>{user.Name}</td>
-                    <td>{user.Email}</td>
-                    <td>{user.Role}</td>
-                    <td>{user.Date_Created}</td>
-                    <td>{user.Status}</td>
+                    <td className="centered-cell">{user.Name}</td>
+                    <td className="centered-cell">{user.Email}</td>
+                    <td className="centered-cell">{user.Role}</td>
+                    <td className="centered-cell">{user.Date_Created}</td>
+                    <td className="centered-cell">{user.Status}</td>
                     <td>
+
+                    
+
                       <div className="d-flex d-sm-inline-flex">
                         <span className=" ">
                           <Link to="/user/adduser">
