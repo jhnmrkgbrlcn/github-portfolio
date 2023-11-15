@@ -1,10 +1,15 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { AiFillCloseCircle } from "react-icons/ai";
-function Delete() {
+
+const Delete = ({
+    title,
+    desc
+}) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -35,8 +40,8 @@ function Delete() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="text-center">
-          <h1>Delete User Account?</h1>
-          <p>Deleting User account is permanent and cannot be undone</p>
+          <h1>{title}</h1>
+          <p>{desc}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -50,3 +55,8 @@ function Delete() {
 }
 
 export default Delete;
+
+Delete.propTypes = {
+    title: PropTypes.string,
+    desc: PropTypes.string
+}

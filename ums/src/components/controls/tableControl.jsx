@@ -1,4 +1,5 @@
-import Delete from "@mui/icons-material/Delete";
+
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import IconButton from "@mui/material/IconButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
@@ -11,9 +12,9 @@ import {
   AiOutlineEllipsis,
 } from "react-icons/ai";
 import { BiSortAlt2 } from "react-icons/bi";
-import { BsFillPencilFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import defUserImage from "../../asset/defUserImage.png";
+import Delete from "./deleteControl";
 
 const smallButtonStyle = {
     fontSize: "13px",
@@ -51,25 +52,19 @@ return (
                             <td>
                               <div className="d-flex d-sm-inline-flex">
                                   <span className=" ">
-                                    <Link to="/user/adduser">
+                                    <Link to="">
                                       <IconButton
                                         className="text-success"
                                         style={smallButtonStyle}>
-                                        <BsFillPencilFill />
+                                        <VisibilityOutlinedIcon />
                                       </IconButton>
                                     </Link>
                                   </span>
-                                  <span className=" d-none d-sm-none  d-md-none d-lg-block">
-                                    <Delete />
-                                  </span>
-                                  <span className=" d-none d-sm-none  d-md-none d-lg-block">
-                                    <Link to="/user/profile">
-                                      <IconButton
-                                        className="text-dark"
-                                        style={smallButtonStyle}>
-                                        <AiOutlineEllipsis />
-                                      </IconButton>
-                                    </Link>
+                                  <span className="d-flex d-sm-inline-flex ">
+                                    <Delete 
+                                      title="Delete Log?" 
+                                      desc="Deleting Log is permanent and cannot be undone"
+                                    />
                                   </span>
                                 </div>
                               </td>
