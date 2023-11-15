@@ -20780,7 +20780,7 @@
     transition: width 0.25s ease, margin 0.25s ease;
     width: 100%;
     background-color: #f1fefd;
-    min-height: calc(100vh - 70px);
+    min-height: calc(120vh - 70px);
     padding-top: 70px;
     display: -webkit-flex;
     display: flex;
