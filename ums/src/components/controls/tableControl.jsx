@@ -1,30 +1,14 @@
-
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import IconButton from "@mui/material/IconButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-import { propTypes } from "react-bootstrap/esm/Image";
-import {
-  AiFillCloseCircle,
-  AiOutlineCaretLeft,
-  AiOutlineCaretRight,
-  AiOutlineEllipsis,
-} from "react-icons/ai";
-import { BiSortAlt2 } from "react-icons/bi";
-import { Link } from "react-router-dom";
-import defUserImage from "../../asset/defUserImage.png";
-import Delete from "./deleteControl";
-
-const smallButtonStyle = {
-    fontSize: "13px",
-  };
-
+import DeleteControl from "./deleteControl";
+import ViewControl from "./viewControl";
 
 const TableControl = ({
     headers,
     name,
-    items
+    items,
+    onSuccess,
 }) => {
 return (                                                                
     <>
@@ -44,7 +28,7 @@ return (
                     items.map(item => {
                         return (
                           <tr>
-                            <td>{item.id}</td>
+                            <td>{item.ID}</td>
                             <td>{item.description}</td>
                             <td>{item.time}</td>
                             <td>{item.date}</td>
@@ -52,18 +36,22 @@ return (
                             <td>
                               <div className="d-flex d-sm-inline-flex">
                                   <span className=" ">
-                                    <Link to="">
-                                      <IconButton
-                                        className="text-success"
-                                        style={smallButtonStyle}>
-                                        <VisibilityOutlinedIcon />
-                                      </IconButton>
-                                    </Link>
+                                    <ViewControl 
+                                      name="Log"
+                                      id={item.ID}
+                                      time={item.time}
+                                      date={item.date}
+                                      user={item.user}
+                                      desc={item.description}
+                                    />
                                   </span>
                                   <span className="d-flex d-sm-inline-flex ">
-                                    <Delete 
+                                    <DeleteControl 
                                       title="Delete Log?" 
                                       desc="Deleting Log is permanent and cannot be undone"
+                                      list={items}
+                                      id={item.ID}
+                                      onSuccess={onSuccess}
                                     />
                                   </span>
                                 </div>
@@ -84,5 +72,6 @@ export default TableControl;
 TableControl.propTypes = {
     headers: PropTypes.any,
     name: PropTypes.string,
-    items: PropTypes.any
+    items: PropTypes.any,
+    onSuccess: PropTypes.func,
 }

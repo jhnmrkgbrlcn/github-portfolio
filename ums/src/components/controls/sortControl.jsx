@@ -1,11 +1,30 @@
 import PropTypes from "prop-types";
 import { BiSortAlt2 } from "react-icons/bi";
 const SortControl = ({
-    name
+    name,
+    items,
+    onSuccess,
 }) => {
+    const sortItems = (sortBy) => {
+        items.sort((a, b) => {
+            let fa = a[sortBy],
+                fb = b[sortBy];
+        
+            if (fa < fb) {
+                return -1;
+            }
+            if (fa > fb) {
+                return 1;
+            }
+            return 0;
+        });
+        return onSuccess(items);
+    }  
+
+    const classname = name ? "dropdown mr-2 " + name : "dropdown mr-2";
     return (
         <>
-        <div className="dropdown mr-2">
+        <div className={classname}>
         <button
             className="btn btn-secondary dropdown-toggle"
             type="button"
@@ -18,20 +37,20 @@ const SortControl = ({
         <ul
             className="dropdown-menu"
             aria-labelledby="dropdownMenuButton">
-            <button className="dropdown-item">
+            <button className="dropdown-item" onClick={() => sortItems("ID")}>
             ID
             </button>
-            <button className="dropdown-item">
-            Name
+            <button className="dropdown-item" onClick={() => sortItems("description")}>
+            Description
             </button>
-            <button className="dropdown-item">
-            Role
+            <button className="dropdown-item" onClick={() => sortItems("time")}>
+            Time
             </button>
-            <button className="dropdown-item">
-            Date Created
+            <button className="dropdown-item" onClick={() => sortItems("date")}>
+            Date
             </button>
-            <button className="dropdown-item">
-            Status
+            <button className="dropdown-item" onClick={() => sortItems("user")}>
+            User
             </button>
         </ul>
         </div>
@@ -42,5 +61,7 @@ const SortControl = ({
 export default SortControl;
 
 SortControl.propTypes = {
-    name: PropTypes.any
+    name: PropTypes.any,
+    items: PropTypes.array,
+    onSuccess: PropTypes.func,
 }

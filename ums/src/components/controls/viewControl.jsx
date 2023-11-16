@@ -1,45 +1,34 @@
-import DeleteIcon from "@mui/icons-material/Delete";
+import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import IconButton from "@mui/material/IconButton";
+
 import PropTypes from "prop-types";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { AiFillCloseCircle } from "react-icons/ai";
 
-const DeleteControl = ({
-    title,
-    desc,
-    list,
+const ViewControl = ({
+    name,
     id,
-    onSuccess
+    user,
+    desc,
+    date,
+    time,
 }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const handleDelete = (list, id) => {
-    const index = list.map(i => {return i.ID}).indexOf(id);
-    list.splice(index, 1);
-
-    
-    // DELETE QUERY HERE
-
-
-    setShow(false);
-    return onSuccess(list);
-  }
 
   const smallButtonStyle = {
     fontSize: "15px",
   };
   return (
     <>
-      <IconButton>
-        <AiFillCloseCircle
-          className="text-danger"
-          style={smallButtonStyle}
-          onClick={handleShow}
-        />
+      <IconButton onClick={handleShow}
+        className="text-success"
+        style={smallButtonStyle}>
+        <VisibilityOutlinedIcon />
       </IconButton>
 
       <Modal
@@ -50,28 +39,32 @@ const DeleteControl = ({
         keyboard={false}>
         <Modal.Header className="d-flex justify-content-center align-items-center">
           <Modal.Title className="">
-            <DeleteIcon fontSize="large" />
+            <LibraryBooksOutlinedIcon fontSize="large" />
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="text-center">
-          <h1>{title}</h1>
-          <p>{desc}</p>
+        <Modal.Body className="text-left">
+          <h1>{name} #{id}</h1>
+          <p>{date}</p>
+          <p>{time}</p>
+          <p>{user} {desc}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
-            Cancel
+            Close
           </Button>
-          <Button variant="danger" onClick={() => handleDelete(list, id)}>Delete</Button>
         </Modal.Footer>
       </Modal>
     </>
   );
 }
 
-export default DeleteControl;
+export default ViewControl;
 
-DeleteControl.propTypes = {
-    title: PropTypes.string,
+ViewControl.propTypes = {
+    name: PropTypes.string,
+    id: PropTypes.string,
+    user: PropTypes.string,
     desc: PropTypes.string,
-    onSuccess: PropTypes.func,
+    date: PropTypes.string,
+    time: PropTypes.string,
 }
