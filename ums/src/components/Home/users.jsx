@@ -2,7 +2,6 @@ import IconButton from "@mui/material/IconButton";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
 import {
-  AiFillCloseCircle,
   AiOutlineCaretLeft,
   AiOutlineCaretRight,
   AiOutlineEllipsis,
@@ -101,12 +100,17 @@ const Users = () => {
   const smallButtonStyle = {
     fontSize: "13px",
   };
-  //range of page number
-  const pageRange = 5;
+  //pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const usersPerPage = 5;
+  const lastIndex = currentPage * usersPerPage;
+  const firstIndex = lastIndex - usersPerPage;
+  const usersToDisplay = users.slice(firstIndex, lastIndex);
+  const totalPages = Math.ceil(users.length / usersPerPage);
+  const pageRange = 6;
   let minPage = Math.max(1, currentPage - Math.floor(pageRange / 2));
   let maxPage = minPage + pageRange - 1;
 
-  // Adjust the range for the last set of pages
   if (maxPage > totalPages) {
     maxPage = totalPages;
     minPage = Math.max(1, maxPage - pageRange + 1);
@@ -144,9 +148,10 @@ const Users = () => {
               href="/users"
               style={{
                 margin: 30,
-                fontSize: 15,
-                textDecoration: "none",
+                fontSize: 18,
+                textDecoration: "underline",
                 color: "black",
+                fontWeight: "bold",
               }}>
               {" "}
               Users
@@ -155,7 +160,7 @@ const Users = () => {
               href="/role"
               style={{
                 margin: 25,
-                fontSize: 15,
+                fontSize: 18,
                 textDecoration: "none",
                 color: "black",
               }}>
@@ -225,7 +230,7 @@ const Users = () => {
           </div>
 
           <div className="table-responsive">
-            <table className="table">
+            <table className="table table d-none d-md-table">
               <thead>
                 <tr>
                   <th className="text-center">#</th>
@@ -264,10 +269,10 @@ const Users = () => {
                             </IconButton>
                           </Link>
                         </span>
-                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                        <span className="d-flex d-sm-inline-flex ">
                           <Delete />
                         </span>
-                        <span className=" d-none d-sm-none  d-md-none d-lg-block">
+                        <span className=" d-flex d-sm-inline-flex">
                           <Link to="/user/profile">
                             <IconButton
                               className="text-dark"
@@ -318,8 +323,8 @@ const Users = () => {
               </thead>
             </table>
           </div>
-          <div className="d-block">
-            <nav className="d-flex justify-content-end align-items-center mb-2 ">
+          <div class="d-block">
+            <nav class="d-flex justify-content-end align-items-center mb-2 ">
               <ul className="pagination">
                 <li className="page-item">
                   <a href="#" className="page-link" onClick={prePage}>
