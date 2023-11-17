@@ -1,15 +1,20 @@
-import "bootstrap/dist/css/bootstrap.min.css";
+//utils
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import DeleteControl from "./deleteControl";
 import ViewControl from "./viewControl";
+//styles
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const TableControl = ({
     headers,
     name,
     items,
+    allItems,
     onSuccess,
 }) => {
+
 return (                                                                
     <>
     <div className="table-responsive">
@@ -49,7 +54,7 @@ return (
                                     <DeleteControl 
                                       title="Delete Log?" 
                                       desc="Deleting Log is permanent and cannot be undone"
-                                      list={items}
+                                      list={allItems}
                                       id={item.ID}
                                       onSuccess={onSuccess}
                                     />
@@ -61,7 +66,6 @@ return (
                     })
                 }
             </tbody>
-            
         </table>
     </div>
     </>
@@ -73,5 +77,6 @@ TableControl.propTypes = {
     headers: PropTypes.any,
     name: PropTypes.string,
     items: PropTypes.any,
+    allItems: PropTypes.any,
     onSuccess: PropTypes.func,
 }
