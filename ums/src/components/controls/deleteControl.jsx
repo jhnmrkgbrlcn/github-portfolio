@@ -1,14 +1,33 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
+import PropTypes from "prop-types";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { AiFillCloseCircle } from "react-icons/ai";
-function Delete() {
+
+const DeleteControl = ({
+    title,
+    desc,
+    list,
+    id,
+    onSuccess
+}) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleDelete = (list, id) => {
+    const index = list.map(i => {return i.ID}).indexOf(id);
+    list.splice(index, 1);
+
+    
+    // DELETE QUERY HERE
+
+
+    setShow(false);
+    return onSuccess(list);
+  }
 
   const smallButtonStyle = {
     fontSize: "15px",
@@ -35,18 +54,24 @@ function Delete() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="text-center">
-          <h1>Delete User Account?</h1>
-          <p>Deleting User account is permanent and cannot be undone</p>
+          <h1>{title}</h1>
+          <p>{desc}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="danger">Delete</Button>
+          <Button variant="danger" onClick={() => handleDelete(list, id)}>Delete</Button>
         </Modal.Footer>
       </Modal>
     </>
   );
 }
 
-export default Delete;
+export default DeleteControl;
+
+DeleteControl.propTypes = {
+    title: PropTypes.string,
+    desc: PropTypes.string,
+    onSuccess: PropTypes.func,
+}
