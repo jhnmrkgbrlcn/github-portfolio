@@ -1,8 +1,27 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../asset/logo.png";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoggedIn, setLoggedIn] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const staticUsername = "cueno@gmail.com";
+  const staticPassword = "password";
+
+  const navigate = useNavigate();
+  
+  const handleLogin = () => {
+    if (username === staticUsername && password === staticPassword) {
+      setLoggedIn(true);
+      navigate("/dashboard");
+    } else {
+      setErrorMessage("Wrong username or password. Please try again.");
+    }
+  };
   return (
     <>
       <section className="vh-100 gradient-custom">
@@ -27,6 +46,8 @@ function Login() {
                         type="email"
                         id="typeEmailX"
                         className="form-control form-control-lg"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
                       />
                     </div>
 
@@ -38,23 +59,24 @@ function Login() {
                         type="password"
                         id="typePasswordX"
                         className="form-control form-control-lg"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      
                       />
-
+                        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
                       <p className="small text-end p-2">
                         <a
                           className="text-white-50  "
                           href="#!"
-                          style={{ textDecoration: "none" }}>
+                          style={{ textDecoration: "none" ,}}>
                           Forgot password?
                         </a>
                       </p>
-                    </div>
-
-                    <Link
-                      to="/dashboard"
-                      className="d-block btn btn-outline-light btn-lg ">
-                      Login
-                    </Link>
+                    </div>                  
+                    <button className="d-block btn btn-outline-light btn-lg " 
+                    style={{margin:"auto"}} 
+                    onClick={handleLogin}>Login</button>
+                   
                   </div>
                 </div>
               </div>
