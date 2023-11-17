@@ -100,7 +100,6 @@ const Users = () => {
   const smallButtonStyle = {
     fontSize: "13px",
   };
-  
   //pagination
   const [currentPage, setCurrentPage] = useState(1);
   const usersPerPage = 5;
