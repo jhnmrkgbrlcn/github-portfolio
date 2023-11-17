@@ -32,7 +32,7 @@ const Navbar = () => {
 
         <div
           className="offcanvas offcanvas-start"
-          tabindex="-1"
+          tabIndex="-1"
           id="offcanvasExample"
           aria-labelledby="offcanvasExampleLabel">
           <div className="offcanvas-header">
@@ -108,12 +108,11 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-
         <div className="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
           <ul className="navbar-nav w-100">
             <li className="nav-item w-100">
               <h4 className="d-m-block d-md-block d-lg-none text-center">
-                User Managemesnt
+                User Management
               </h4>
             </li>
           </ul>
@@ -143,7 +142,9 @@ const Navbar = () => {
               <div className="d-flex justify-content-center align-items-center">
                 <span className=" d-none d-sm-none  d-md-none d-lg-block">
                   <IconButton color="primary">
-                    <SettingsIcon />
+                    <Link to="/settings" className="text-primary">
+                      <SettingsIcon />
+                    </Link>
                   </IconButton>
                 </span>
                 <span className=" d-none d-sm-none  d-md-none d-lg-block">
