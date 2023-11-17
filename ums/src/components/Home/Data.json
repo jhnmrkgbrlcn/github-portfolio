@@ -57,10 +57,10 @@
         "ID": 7,
         "Name": "Matthew Clark",
         "Email": "matthew.clark@example.com",
-        "Role": "Influencer",
+        "Role": "Developer",
         "Date_Created": "2023-11-01",
         "Status": "Active",
-        "Handles": ["Create Content", "Attend Events", "View Analytics"]
+        "Handles": ["Coding", "Bug Fixing", "Code Review"]
     },
     {
         "ID": 8,
