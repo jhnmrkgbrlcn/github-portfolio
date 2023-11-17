@@ -57,6 +57,12 @@ const Sidebar = () => {
               </ul>
             </div>
           </li>
+          <li className="nav-item menu-items">
+            <Link to="/logs" className="nav-link">
+              <DashboardIcon style={{ margin: 5 }} />
+              Logs
+            </Link>
+          </li>
         </ul>
       </nav>
     </>

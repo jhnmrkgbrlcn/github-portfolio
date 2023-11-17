@@ -12,7 +12,7 @@ import GroupIcon from "@mui/icons-material/Group";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import Signout from "./signout";
-
+import NotificationDropdown from "./notification"
 const Navbar = () => {
   return (
     <>
@@ -135,9 +135,9 @@ const Navbar = () => {
             </div>
             <div className=" d-flex justify-content-center align-items-center">
               <span className=" ">
-                <IconButton color="primary">
-                  <NotificationsIcon />
-                </IconButton>
+                
+                <NotificationDropdown/>
+                
               </span>
               <div className="d-flex justify-content-center align-items-center">
                 <span className=" d-none d-sm-none  d-md-none d-lg-block">
